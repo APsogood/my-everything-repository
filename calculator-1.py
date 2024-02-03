@@ -8,4 +8,5 @@ sum = first_answer + second_answer
 
 print("Your first answer " + str(first_answer) + " + " + str(second_answer) + " = " + str(sum)) 
 
+print("Have a great day!")
 # run this code on any code editors and enjoy!
