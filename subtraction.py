@@ -1,1 +1,0 @@
-print("Welcome to my subtraction calculator. I will make more calculators in the furture.")
