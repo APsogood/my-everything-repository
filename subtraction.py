@@ -1,7 +1,7 @@
-print("Welcome to my subtraction calculator. I am in the process of making more calculators. Please give a star, I spend a while to m-ake for you guys to enjoy. ")
+print("Welcome to my subtraction calculator. I am in the process of making more calculators. Please give a star, I spend a while to make pro-jects for you guys to enjoy.\n")
 
-first_answer = float(input("What do you want your starting number? "))
-second_answer = float(input("How much do you want to subtract from your first answer? "))
+first_answer = float(input("What do you want your starting number? \n"))
+second_answer = float(input("How much do you want to subtract from your first answer? \n"))
 
 result = first_answer - second_answer
 
