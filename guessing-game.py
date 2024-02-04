@@ -9,7 +9,7 @@ def guessing_game():
     
     
     while True:
-        guess = int(input("Guess a number between 1 and 10: \n"))
+        guess = int(input("Guess a number between 1 and 10: "))
         attempts += 1
         
         if guess < secret_number:
@@ -17,7 +17,7 @@ def guessing_game():
         elif guess > secret_number:
             print("Too high! Try again.")
         else:
-            print(f"Congratulations! You guessed the number {secret_number} correctly in {attempts} attempts!\n")
+            print(f"Congratulations! You guessed the number {secret_number} correctly in {attempts} attempts! ")
             break
 
 guessing_game()
