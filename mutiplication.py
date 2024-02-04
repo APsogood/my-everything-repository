@@ -7,4 +7,4 @@ sum = first_answer * second_answer
 
 print(str(first_answer) + " x " + str(second_answer) + " = " + str(sum))
 
-# Please give this code a star I spent a while doing these mini projects!
+# Please give this code a star and follow me I spent a while doing these mini projects for you guys!!
