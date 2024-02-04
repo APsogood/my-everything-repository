@@ -21,3 +21,4 @@ def guessing_game():
             break
 
 guessing_game()
+# I hope you enjoyed my guessing game! If you do, please give my code a star and follow me for more projects!
