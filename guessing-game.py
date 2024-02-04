@@ -9,7 +9,7 @@ def guessing_game():
     # Initialize the number of attempts
     attempts = 0
     
-    print("Welcome to the Guessing Game!")
+    print("I hope you enjoy my guessing game!")
     
     # Loop until the user guesses the correct number
     while True:
