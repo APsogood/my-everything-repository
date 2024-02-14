@@ -1,4 +1,4 @@
-# If you enjoy this snake game, please follow me and give my code a star!
+# If you enjoy this snake game, please follow me and give my repository a star!
 import pygame
 import random
 
