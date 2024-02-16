@@ -1,2 +1,0 @@
-#AEFEe
-print("E")
