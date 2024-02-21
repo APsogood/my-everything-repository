@@ -1,7 +1,7 @@
 age = int(input("Enter your age: "))
 
 while True:
-    if_has_kids = input("Do you have kids? (yes/no): ").lower()
+    if_has_kids = input("Does your kids have kids? (yes/no): ").lower()
     if if_has_kids == "yes":
         while True:
             gender = input("Are you a boy or a girl? ").lower()
