@@ -1,1 +1,1 @@
-print("You are gonna be arrested siib")
+print("You are gonna be helped tohed siib")
