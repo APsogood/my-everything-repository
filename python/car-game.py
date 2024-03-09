@@ -1,4 +1,5 @@
 # If help required, type in help. It will give a list of commands
+print("> If you need a list of commands, type help. Make sure it has no spelling mistake!")
 command = ""
 started = False
 while command != "quit":
