@@ -1,4 +1,4 @@
-print("Welcome to my subtraction calculator. I am in the process of making more calculators. Please give my repository a star, I spend a whi-le to make projects for you guys to enjoy.\n")
+print("Welcome to my subtraction calculator. I am in the process of making more calculators. Please give my repository a star, I spend a while to make projects for you guys to enjoy.\n")
 
 first_answer = float(input("What do you want your starting number? \n"))
 second_answer = float(input("How much do you want to subtract from your first answer? \n"))

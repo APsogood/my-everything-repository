@@ -1,4 +1,4 @@
-print("This is a guessing game and you need to guess the secret number! Are you able to do it? And please give a star and follow me. Now let-'s guess!!!\n")
+print("This is a guessing game and you need to guess the secret number! Are you able to do it? And please give a star and follow me. Now let's guess!!!\n")
 
 import random
 
