@@ -6,7 +6,7 @@ while True:
         num1 = float(input("Enter the first number: "))
         num2 = float(input("Enter the second number: "))
         
-        if operator == "addition":
+        if operator == "addition": # When the user inputs addition it does the addition same for everything
             result = num1 + num2
         elif operator == "subtraction":
             result = num1 - num2
