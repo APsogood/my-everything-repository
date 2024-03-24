@@ -15,3 +15,4 @@ while True:
 
 print("Hey! What weapon do you want to buy? (vacuum), (food), (shadow detector) and more coming soon.")
 weapons = input()
+#
