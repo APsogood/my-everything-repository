@@ -1,0 +1,32 @@
+weight_input = input("Enter the weight of a 1 to 10-year-old kid: ")
+
+if weight_input.isdigit():  # Check if input consists of only digits
+    weight = int(weight_input)
+    if weight > 10:
+        print(f"{weight} is too high of a number.")
+    elif weight < 1:
+        print(f"{weight} is too low of a number.")
+    else:
+        print(f"{weight} is within the valid range.")
+        if weight == 1:
+            print("An average weight for boys is 9.6 kgs or 21 pounds. For girls, an average weight is 8.9 kgs or 19 pounds.")
+        elif weight == 2:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 3:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 4:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 5:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 6:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 7:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 8:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 9:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+        elif weight == 10:
+            print("For an average boy they should weight 11 to 14 kgs or 21 33.5 pounds")
+else:
+    print(f"'{weight_input}' is not a valid answer.")
