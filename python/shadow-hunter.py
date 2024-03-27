@@ -13,8 +13,11 @@ while True:
         print("Username is too short. Please enter a username with at least 3 characters.\n")
     else:
         print(f"Hi {username}, we have been seeing shadows appearing and people have gone missing! You have to protect our village chief {username}")
+        time.sleep(3)
         print("Tip: Shadow monsters don't attack during the day; they attack at night.")
+        time.sleep(3)
         print("We can craft vacuum and shadow detector here. You can unlock more powerful weapons here.\n")
+        time.sleep(3)
         
         if not has_detector:
             choice = input("Which one do you want to craft first, vacuum or shadow detector?: ").lower()
