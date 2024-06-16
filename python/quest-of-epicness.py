@@ -5,10 +5,14 @@ def adventure_game():
     choice = input("Which direction do you choose? (left/right): ").lower()
     
     if choice == "left":
-        print("You encounter a friendly dragon. He gives you treasure. You win!")
+        decide = input("You walked left. You think something is following you... Will you (run) or (find out what it is)?").lower()
+    if decide == "run":
+        pass
+    elif decide == "find out what it is":
+        pass
     elif choice == "right":
         print("You fall into a pit and stuck their forever. You lose!")
     else:
-        print("Invalid choice. You wander around and find nothing. The game ends.")
+        print("Invalid choice. You wander around and get eaten by a giant bird. You lose!")
 
 adventure_game()
