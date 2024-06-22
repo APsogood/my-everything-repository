@@ -11,7 +11,7 @@ def adventure_game():
     elif decide == "find out what it is":
         pass
     elif choice == "right":
-        print("You fall into a pit and stuck their forever. You lose!")
+        print("You walked right. Rest to be continued.")
     else:
         print("Invalid choice. You wander around and get eaten by a giant bird. You lose!")
 
