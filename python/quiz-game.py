@@ -59,7 +59,7 @@ for question in questions:
         score += 1
         print("You are correct!")
     else:
-        print(f"Sorry, but your answer is incorrect. The correct answer was{answers[question_num]} is the correct answer.")
+        print(f"Sorry, but your answer is incorrect. The correct answer was {answers[question_num]}.")
 
     
     question_num += 1
