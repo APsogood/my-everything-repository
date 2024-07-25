@@ -17,6 +17,8 @@
     <label for="sushi">Sushi</label><br>
     <input type="radio" id="pasta" name="recipe" value="pasta">
     <label for="pasta">Pasta</label><br>
+    <input type="radio" id="coffee" name="recipe" value="coffee">
+    <label for="coffee">Coffee</label><br>
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
 
@@ -141,6 +143,30 @@ function showRecipe() {
             <li>Serve the pasta topped with grated Parmesan cheese.</li>
         </ol>
         <p>Enjoy your pasta!</p>
+        `;
+    } else if (recipe === 'coffee') {
+        recipeOutput.innerHTML = `
+        <h2>Coffee Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>2 tablespoons ground coffee (medium to coarse grind)</li>
+            <li>1 cup water</li>
+            <li>Milk or cream (optional)</li>
+            <li>Sugar or sweetener (optional)</li>
+            <li>Flavorings like vanilla extract or cocoa powder (optional)</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Boil the water in a kettle or saucepan.</li>
+            <li>Place a coffee filter in a dripper or use a French press.</li>
+            <li>Add the ground coffee to the filter or French press.</li>
+            <li>Pour the hot water over the coffee grounds slowly to ensure even extraction.</li>
+            <li>If using a French press, let it steep for about 4 minutes before pressing down the plunger.</li>
+            <li>Pour the brewed coffee into a mug.</li>
+            <li>Add milk, cream, sugar, or any desired flavorings.</li>
+            <li>Stir well and enjoy your coffee!</li>
+        </ol>
+        <p>Enjoy your coffee!</p>
         `;
     }
 }
