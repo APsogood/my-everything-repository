@@ -19,6 +19,8 @@
     <label for="pasta">Pasta</label><br>
     <input type="radio" id="coffee" name="recipe" value="coffee">
     <label for="coffee">Coffee</label><br>
+    <input type="radio" id="tea" name="recipe" value="tea">
+    <label for="tea">Tea</label><br>
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
 
@@ -167,6 +169,28 @@ function showRecipe() {
             <li>Stir well and enjoy your coffee!</li>
         </ol>
         <p>Enjoy your coffee!</p>
+        `;
+    } else if (recipe === 'tea') {
+        recipeOutput.innerHTML = `
+        <h2>Tea Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 teaspoon loose leaf tea or 1 tea bag (black, green, herbal, etc.)</li>
+            <li>1 cup water</li>
+            <li>Honey, sugar, or sweetener (optional)</li>
+            <li>Milk or lemon (optional)</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Boil the water in a kettle or saucepan.</li>
+            <li>Place the tea leaves or tea bag in a teapot or cup.</li>
+            <li>Pour the boiling water over the tea leaves or tea bag.</li>
+            <li>Let it steep for 3-5 minutes, depending on the type of tea and your preference for strength.</li>
+            <li>Remove the tea leaves or tea bag.</li>
+            <li>Add honey, sugar, or sweetener if desired. You can also add milk or lemon.</li>
+            <li>Stir well and enjoy your tea!</li>
+        </ol>
+        <p>Enjoy your tea!</p>
         `;
     }
 }
