@@ -21,6 +21,8 @@
     <label for="coffee">Coffee</label><br>
     <input type="radio" id="tea" name="recipe" value="tea">
     <label for="tea">Tea</label><br>
+    <input type="radio" id="turkey_sandwich" name="recipe" value="turkey_sandwich">
+    <label for="turkey_sandwich">Turkey Sandwich</label><br>
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
 
@@ -191,6 +193,31 @@ function showRecipe() {
             <li>Stir well and enjoy your tea!</li>
         </ol>
         <p>Enjoy your tea!</p>
+        `;
+    } else if (recipe === 'turkey_sandwich') {
+        recipeOutput.innerHTML = `
+        <h2>Turkey Sandwich Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>2 slices of bread (your choice)</li>
+            <li>2-3 slices of roasted turkey breast</li>
+            <li>1-2 slices of cheese (optional, your choice)</li>
+            <li>Lettuce leaves</li>
+            <li>Tomato slices</li>
+            <li>Mayonnaise or mustard (optional)</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Toast the bread slices if desired.</li>
+            <li>Spread mayonnaise or mustard on one or both slices of bread.</li>
+            <li>Layer the turkey slices on one slice of bread.</li>
+            <li>Add cheese slices, lettuce, and tomato slices on top of the turkey.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Top with the second slice of bread.</li>
+            <li>Cut the sandwich in half if desired and serve immediately.</li>
+        </ol>
+        <p>Enjoy your turkey sandwich!</p>
         `;
     }
 }
