@@ -29,6 +29,8 @@
     <label for="hotdog">Hot Dog</label><br>
     <input type="radio" id="ramen" name="recipe" value="ramen">
     <label for="ramen">Ramen</label><br>
+    <input type="radio" id="dumplings" name="recipe" value="dumplings">
+    <label for="dumplings">Dumplings</label><br>
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
 
@@ -123,8 +125,8 @@ function showRecipe() {
             <li>Place a sheet of nori on a bamboo sushi mat or a clean surface.</li>
             <li>Wet your hands with water to prevent sticking. Take a handful of rice and spread it evenly over the nori, leaving a small border at the top edge.</li>
             <li>Arrange your chosen fillings in a line across the center of the rice.</li>
-            <li>Starting from the bottom edge, use the bamboo mat to tightly roll the sushi away from you, pressing gently but firmly.</li>
-            <li>Once rolled, use a sharp knife to slice the roll into bite-sized pieces. Repeat with remaining ingredients.</li>
+            <li>Starting from the bottom edge, carefully roll the sushi tightly using the bamboo mat, pressing gently to seal.</li>
+            <li>Slice the roll into bite-sized pieces using a sharp knife. Repeat with the remaining ingredients.</li>
             <li>Serve the sushi with soy sauce, pickled ginger, and wasabi.</li>
         </ol>
         <p>Enjoy your homemade sushi!</p>
@@ -134,62 +136,58 @@ function showRecipe() {
         <h2>Pasta Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>400g pasta (e.g., spaghetti, penne, fusilli)</li>
-            <li>4 cups water</li>
-            <li>2 tablespoons olive oil</li>
-            <li>2 cloves garlic, minced</li>
-            <li>1 can (14 oz) diced tomatoes</li>
-            <li>1 teaspoon dried oregano</li>
-            <li>1 teaspoon dried basil</li>
-            <li>Salt and pepper to taste</li>
-            <li>Grated Parmesan cheese (optional)</li>
+            <li>1 pound pasta (spaghetti, penne, etc.)</li>
+            <li>4 quarts water</li>
+            <li>1 tablespoon salt</li>
+            <li>2 cups marinara sauce (store-bought or homemade)</li>
+            <li>Grated Parmesan cheese for serving</li>
+            <li>Fresh basil leaves for garnish (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring a large pot of water to a boil. Add a pinch of salt and the pasta. Cook according to the package instructions until al dente.</li>
-            <li>While the pasta is cooking, heat the olive oil in a large skillet over medium heat. Add the minced garlic and cook until fragrant, about 1 minute.</li>
-            <li>Add the diced tomatoes, oregano, basil, salt, and pepper. Simmer for about 10-15 minutes, stirring occasionally.</li>
-            <li>Drain the cooked pasta and add it to the skillet with the tomato sauce. Toss to combine and heat through.</li>
-            <li>Serve the pasta with grated Parmesan cheese, if desired.</li>
+            <li>Bring the water to a boil in a large pot. Add the salt.</li>
+            <li>Add the pasta to the boiling water and cook according to the package instructions until al dente.</li>
+            <li>Drain the pasta and return it to the pot.</li>
+            <li>Add the marinara sauce to the pasta and toss to combine.</li>
+            <li>Serve the pasta with grated Parmesan cheese and garnish with fresh basil leaves if desired.</li>
         </ol>
         <p>Enjoy your pasta!</p>
         `;
     } else if (recipe === 'coffee') {
         recipeOutput.innerHTML = `
-        <h2>Basic Coffee Recipe</h2>
+        <h2>Coffee Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>2 tablespoons ground coffee</li>
-            <li>6 ounces water</li>
+            <li>1 cup water</li>
+            <li>Sugar or sweetener to taste (optional)</li>
             <li>Milk or cream (optional)</li>
-            <li>Sugar (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Measure out 2 tablespoons of ground coffee for each 6-ounce cup of coffee you want to make.</li>
-            <li>Bring fresh water to a boil.</li>
-            <li>If using a coffee maker, follow the manufacturer's instructions. If using a French press, add the coffee grounds to the press, pour in the hot water, stir, and let it steep for 4 minutes before pressing down the plunger.</li>
-            <li>Pour the coffee into a mug. Add milk, cream, or sugar to taste if desired.</li>
+            <li>Heat the water to just below boiling (around 200°F or 93°C).</li>
+            <li>Place the ground coffee in a coffee maker, French press, or pour-over setup.</li>
+            <li>Pour the hot water over the coffee grounds and let it brew for about 4 minutes.</li>
+            <li>Pour the brewed coffee into a mug. Add sugar or sweetener and milk or cream if desired.</li>
         </ol>
         <p>Enjoy your coffee!</p>
         `;
     } else if (recipe === 'tea') {
         recipeOutput.innerHTML = `
-        <h2>Basic Tea Recipe</h2>
+        <h2>Tea Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 tea bag or 1 teaspoon loose tea leaves</li>
-            <li>8 ounces water</li>
-            <li>Honey or sugar (optional)</li>
+            <li>1 teaspoon loose tea leaves or 1 tea bag</li>
+            <li>1 cup water</li>
+            <li>Honey or sugar to taste (optional)</li>
             <li>Milk or lemon (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring fresh water to a boil.</li>
-            <li>If using a tea bag, place it in a cup. If using loose tea leaves, place them in a tea infuser and put it in a cup.</li>
-            <li>Pour the boiling water over the tea bag or infuser.</li>
-            <li>Let the tea steep for 3-5 minutes, depending on your preference and the type of tea.</li>
-            <li>Remove the tea bag or infuser. Add honey or sugar and milk or lemon to taste if desired.</li>
+            <li>Heat the water to the appropriate temperature for your type of tea (generally 175°F/80°C for green tea, 195°F/90°C for oolong, and 200°F/93°C for black tea).</li>
+            <li>Place the tea leaves in a teapot or infuser, or place the tea bag in a cup.</li>
+            <li>Pour the hot water over the tea leaves or tea bag and let it steep for the recommended time (usually 2-3 minutes for green tea, 3-5 minutes for oolong, and 3-5 minutes for black tea).</li>
+            <li>Remove the tea leaves or tea bag. Add honey or sugar and milk or lemon if desired.</li>
         </ol>
         <p>Enjoy your tea!</p>
         `;
@@ -200,17 +198,19 @@ function showRecipe() {
         <ul>
             <li>2 slices of bread</li>
             <li>2-3 slices of turkey breast</li>
-            <li>Lettuce leaves</li>
-            <li>Tomato slices</li>
-            <li>Mayonnaise or mustard</li>
+            <li>1-2 slices of cheese (optional)</li>
+            <li>1 leaf of lettuce</li>
+            <li>2 slices of tomato</li>
+            <li>Mayonnaise or mustard (optional)</li>
             <li>Salt and pepper to taste</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Spread mayonnaise or mustard on one side of each slice of bread.</li>
-            <li>Layer the turkey breast, lettuce, and tomato slices on one slice of bread. Season with salt and pepper.</li>
-            <li>Top with the other slice of bread.</li>
-            <li>Cut the sandwich in half and serve.</li>
+            <li>Spread mayonnaise or mustard on one side of each slice of bread, if using.</li>
+            <li>Layer the turkey, cheese, lettuce, and tomato on one slice of bread.</li>
+            <li>Season with salt and pepper.</li>
+            <li>Top with the second slice of bread.</li>
+            <li>Cut the sandwich in half if desired and serve.</li>
         </ol>
         <p>Enjoy your turkey sandwich!</p>
         `;
@@ -222,20 +222,22 @@ function showRecipe() {
             <li>1 whole chicken, cut into pieces</li>
             <li>2 cups buttermilk</li>
             <li>2 cups all-purpose flour</li>
-            <li>1 teaspoon salt</li>
+            <li>2 teaspoons salt</li>
             <li>1 teaspoon black pepper</li>
             <li>1 teaspoon paprika</li>
+            <li>1 teaspoon garlic powder</li>
+            <li>1 teaspoon onion powder</li>
             <li>Vegetable oil for frying</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Place the chicken pieces in a large bowl and cover with buttermilk. Refrigerate for at least 1 hour or overnight.</li>
-            <li>In a large bowl, combine the flour, salt, pepper, and paprika.</li>
-            <li>Heat the vegetable oil in a deep skillet or fryer to 350°F (175°C).</li>
-            <li>Remove the chicken from the buttermilk, letting the excess drip off, and dredge in the flour mixture, coating each piece thoroughly.</li>
-            <li>Carefully place the chicken pieces in the hot oil, frying in batches if necessary. Cook for about 15-20 minutes, turning occasionally, until the chicken is golden brown and cooked through.</li>
-            <li>Remove the chicken and drain on paper towels.</li>
-            <li>Serve hot.</li>
+            <li>Place the chicken pieces in a large bowl and pour the buttermilk over them. Cover and refrigerate for at least 2 hours or overnight.</li>
+            <li>In a shallow dish, combine the flour, salt, pepper, paprika, garlic powder, and onion powder.</li>
+            <li>Heat about 1 inch of vegetable oil in a large skillet over medium-high heat until it reaches 350°F (175°C).</li>
+            <li>Remove the chicken from the buttermilk, letting the excess drip off, and dredge each piece in the flour mixture, coating it evenly.</li>
+            <li>Carefully place the chicken pieces in the hot oil and fry for about 10-12 minutes per side, or until golden brown and cooked through (internal temperature should reach 165°F or 75°C).</li>
+            <li>Transfer the fried chicken to a paper towel-lined plate to drain excess oil.</li>
+            <li>Let the chicken rest for a few minutes before serving.</li>
         </ol>
         <p>Enjoy your fried chicken!</p>
         `;
@@ -244,18 +246,17 @@ function showRecipe() {
         <h2>Hot Dog Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>Hot dog buns</li>
             <li>Hot dog sausages</li>
-            <li>Mustard</li>
-            <li>Ketchup</li>
-            <li>Relish</li>
-            <li>Onions (optional)</li>
+            <li>Hot dog buns</li>
+            <li>Condiments (ketchup, mustard, relish, etc.)</li>
+            <li>Optional toppings (onions, sauerkraut, cheese, etc.)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Heat the hot dog sausages according to the package instructions (boil, grill, or microwave).</li>
-            <li>Place each sausage in a bun.</li>
-            <li>Top with mustard, ketchup, relish, and onions as desired.</li>
+            <li>Heat a grill or stovetop griddle over medium heat.</li>
+            <li>Place the hot dog sausages on the grill and cook for about 5-7 minutes, turning occasionally, until heated through and slightly charred.</li>
+            <li>Toast the hot dog buns on the grill for about 1-2 minutes.</li>
+            <li>Place each hot dog sausage in a bun and add your favorite condiments and toppings.</li>
         </ol>
         <p>Enjoy your hot dog!</p>
         `;
@@ -264,26 +265,51 @@ function showRecipe() {
         <h2>Ramen Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>2 packs instant ramen noodles</li>
-            <li>4 cups water</li>
-            <li>1 tablespoon soy sauce</li>
-            <li>1 teaspoon sesame oil</li>
-            <li>1 green onion, sliced</li>
-            <li>1 boiled egg, halved</li>
-            <li>Vegetables (e.g., spinach, corn, bamboo shoots, mushrooms)</li>
-            <li>Protein (e.g., sliced pork, tofu, chicken)</li>
+            <li>1 pack instant ramen noodles</li>
+            <li>2 cups water</li>
+            <li>Optional add-ins (soft-boiled egg, sliced green onions, cooked chicken, vegetables, etc.)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring 4 cups of water to a boil in a pot.</li>
-            <li>Add the ramen noodles and cook according to the package instructions.</li>
-            <li>In a bowl, mix the soy sauce and sesame oil.</li>
-            <li>Once the noodles are cooked, add them to the bowl with the soy sauce and sesame oil mixture. Toss to coat.</li>
-            <li>Top the ramen with sliced green onion, boiled egg, vegetables, and protein of choice.</li>
+            <li>Bring the water to a boil in a saucepan.</li>
+            <li>Add the ramen noodles and cook according to the package instructions, usually about 3-4 minutes.</li>
+            <li>Stir in the seasoning packet and any optional add-ins.</li>
             <li>Serve hot.</li>
         </ol>
         <p>Enjoy your ramen!</p>
         `;
+    } else if (recipe === 'dumplings') {
+        recipeOutput.innerHTML = `
+        <h2>Dumplings Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 pound ground pork or chicken</li>
+            <li>1/2 cup finely chopped cabbage</li>
+            <li>1/4 cup finely chopped green onions</li>
+            <li>2 cloves garlic, minced</li>
+            <li>1 tablespoon soy sauce</li>
+            <li>1 teaspoon sesame oil</li>
+            <li>1 teaspoon grated ginger</li>
+            <li>1 pack dumpling wrappers</li>
+            <li>Vegetable oil for frying</li>
+            <li>Water for steaming</li>
+            <li>Optional dipping sauce (soy sauce, vinegar, chili oil, etc.)</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>In a large bowl, combine the ground meat, cabbage, green onions, garlic, soy sauce, sesame oil, and ginger. Mix well.</li>
+            <li>Place a small spoonful of the filling in the center of each dumpling wrapper.</li>
+            <li>Moisten the edges of the wrapper with water and fold to seal, pleating the edges if desired.</li>
+            <li>Heat a tablespoon of vegetable oil in a large skillet over medium-high heat.</li>
+            <li>Place the dumplings in the skillet and cook for 2-3 minutes, until the bottoms are golden brown.</li>
+            <li>Add 1/4 cup of water to the skillet and cover with a lid. Steam the dumplings for 5-6 minutes, until the filling is cooked through and the wrappers are tender.</li>
+            <li>Remove the lid and cook for an additional 1-2 minutes to crisp up the bottoms.</li>
+            <li>Serve the dumplings hot with your favorite dipping sauce.</li>
+        </ol>
+        <p>Enjoy your dumplings!</p>
+        `;
+    } else {
+        recipeOutput.innerHTML = '<p>Please select a recipe from the dropdown menu.</p>';
     }
 }
 </script>
