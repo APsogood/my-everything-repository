@@ -31,6 +31,8 @@
     <label for="ramen">Ramen</label><br>
     <input type="radio" id="dumplings" name="recipe" value="dumplings">
     <label for="dumplings">Dumplings</label><br>
+    <input type="radio" id="beef_burger" name="recipe" value="beef_burger">
+    <label for="beef_burger">Beef Burger</label><br>
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
 
@@ -123,11 +125,11 @@ function showRecipe() {
             <li>In a small bowl, mix the rice vinegar, sugar, and salt until dissolved. Once the rice is cooked, transfer it to a large bowl and gently fold in the vinegar mixture. Let the rice cool to room temperature.</li>
             <li>Cut your desired fillings into thin strips.</li>
             <li>Place a sheet of nori on a bamboo sushi mat or a clean surface.</li>
-            <li>Wet your hands with water to prevent sticking. Take a handful of rice and spread it evenly over the nori, leaving a small border at the top edge.</li>
-            <li>Arrange your chosen fillings in a line across the center of the rice.</li>
-            <li>Starting from the bottom edge, carefully roll the sushi tightly using the bamboo mat, pressing gently to seal.</li>
-            <li>Slice the roll into bite-sized pieces using a sharp knife. Repeat with the remaining ingredients.</li>
-            <li>Serve the sushi with soy sauce, pickled ginger, and wasabi.</li>
+            <li>Wet your hands with water to prevent sticking and spread a thin layer of rice over the nori, leaving a 1-inch border at the top edge.</li>
+            <li>Arrange your fillings in a line along the bottom edge of the rice.</li>
+            <li>Carefully roll the sushi using the mat, pressing gently to keep the roll tight. Seal the edge with a little water.</li>
+            <li>Using a sharp knife, slice the roll into bite-sized pieces. Repeat with remaining ingredients.</li>
+            <li>Serve with soy sauce, pickled ginger, and wasabi.</li>
         </ol>
         <p>Enjoy your homemade sushi!</p>
         `;
@@ -136,20 +138,26 @@ function showRecipe() {
         <h2>Pasta Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 pound pasta (spaghetti, penne, etc.)</li>
-            <li>4 quarts water</li>
+            <li>12 oz (340 g) pasta (e.g., spaghetti, penne)</li>
+            <li>4 cups water</li>
             <li>1 tablespoon salt</li>
-            <li>2 cups marinara sauce (store-bought or homemade)</li>
-            <li>Grated Parmesan cheese for serving</li>
-            <li>Fresh basil leaves for garnish (optional)</li>
+            <li>2 tablespoons olive oil</li>
+            <li>2 cloves garlic, minced</li>
+            <li>1 can (14.5 oz) crushed tomatoes</li>
+            <li>1 teaspoon dried basil</li>
+            <li>1 teaspoon dried oregano</li>
+            <li>Salt and pepper to taste</li>
+            <li>1/4 cup grated Parmesan cheese</li>
+            <li>Fresh basil for garnish (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring the water to a boil in a large pot. Add the salt.</li>
-            <li>Add the pasta to the boiling water and cook according to the package instructions until al dente.</li>
-            <li>Drain the pasta and return it to the pot.</li>
-            <li>Add the marinara sauce to the pasta and toss to combine.</li>
-            <li>Serve the pasta with grated Parmesan cheese and garnish with fresh basil leaves if desired.</li>
+            <li>Bring the water to a boil in a large pot. Add salt and pasta. Cook according to the package instructions until al dente. Drain and set aside.</li>
+            <li>In a large skillet, heat the olive oil over medium heat. Add the minced garlic and cook until fragrant, about 1 minute.</li>
+            <li>Add the crushed tomatoes, dried basil, and dried oregano. Simmer for about 10 minutes, stirring occasionally.</li>
+            <li>Season the sauce with salt and pepper to taste.</li>
+            <li>Add the cooked pasta to the skillet and toss to coat with the sauce. Cook for an additional 2-3 minutes until heated through.</li>
+            <li>Serve with grated Parmesan cheese and fresh basil if desired.</li>
         </ol>
         <p>Enjoy your pasta!</p>
         `;
@@ -158,17 +166,17 @@ function showRecipe() {
         <h2>Coffee Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>2 tablespoons ground coffee</li>
             <li>1 cup water</li>
-            <li>Sugar or sweetener to taste (optional)</li>
-            <li>Milk or cream (optional)</li>
+            <li>2 tablespoons ground coffee</li>
+            <li>Sugar and milk/cream to taste (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Heat the water to just below boiling (around 200°F or 93°C).</li>
-            <li>Place the ground coffee in a coffee maker, French press, or pour-over setup.</li>
-            <li>Pour the hot water over the coffee grounds and let it brew for about 4 minutes.</li>
-            <li>Pour the brewed coffee into a mug. Add sugar or sweetener and milk or cream if desired.</li>
+            <li>Heat the water to just below boiling.</li>
+            <li>Place the ground coffee in a coffee filter or French press.</li>
+            <li>Pour the hot water over the coffee grounds.</li>
+            <li>If using a French press, let the coffee steep for 4 minutes, then press the plunger down slowly.</li>
+            <li>Pour the coffee into a mug and add sugar and milk/cream if desired.</li>
         </ol>
         <p>Enjoy your coffee!</p>
         `;
@@ -177,17 +185,18 @@ function showRecipe() {
         <h2>Tea Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 teaspoon loose tea leaves or 1 tea bag</li>
             <li>1 cup water</li>
-            <li>Honey or sugar to taste (optional)</li>
-            <li>Milk or lemon (optional)</li>
+            <li>1 tea bag or 1 teaspoon loose tea leaves</li>
+            <li>Sugar, honey, or lemon to taste (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Heat the water to the appropriate temperature for your type of tea (generally 175°F/80°C for green tea, 195°F/90°C for oolong, and 200°F/93°C for black tea).</li>
-            <li>Place the tea leaves in a teapot or infuser, or place the tea bag in a cup.</li>
-            <li>Pour the hot water over the tea leaves or tea bag and let it steep for the recommended time (usually 2-3 minutes for green tea, 3-5 minutes for oolong, and 3-5 minutes for black tea).</li>
-            <li>Remove the tea leaves or tea bag. Add honey or sugar and milk or lemon if desired.</li>
+            <li>Boil the water in a kettle or saucepan.</li>
+            <li>Place the tea bag or loose tea leaves in a cup.</li>
+            <li>Pour the hot water over the tea.</li>
+            <li>Let the tea steep for 3-5 minutes, depending on your preference.</li>
+            <li>Remove the tea bag or strain the loose tea leaves.</li>
+            <li>Add sugar, honey, or lemon if desired.</li>
         </ol>
         <p>Enjoy your tea!</p>
         `;
@@ -198,19 +207,20 @@ function showRecipe() {
         <ul>
             <li>2 slices of bread</li>
             <li>2-3 slices of turkey breast</li>
-            <li>1-2 slices of cheese (optional)</li>
-            <li>1 leaf of lettuce</li>
-            <li>2 slices of tomato</li>
-            <li>Mayonnaise or mustard (optional)</li>
+            <li>1 slice of cheese (optional)</li>
+            <li>1 tablespoon mayonnaise or mustard</li>
+            <li>Leafy greens (e.g., lettuce, spinach)</li>
+            <li>Tomato slices</li>
             <li>Salt and pepper to taste</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Spread mayonnaise or mustard on one side of each slice of bread, if using.</li>
-            <li>Layer the turkey, cheese, lettuce, and tomato on one slice of bread.</li>
-            <li>Season with salt and pepper.</li>
-            <li>Top with the second slice of bread.</li>
-            <li>Cut the sandwich in half if desired and serve.</li>
+            <li>Spread mayonnaise or mustard on one side of each slice of bread.</li>
+            <li>Layer the turkey slices on one slice of bread.</li>
+            <li>Add cheese if using.</li>
+            <li>Top with leafy greens and tomato slices.</li>
+            <li>Season with salt and pepper if desired.</li>
+            <li>Place the other slice of bread on top to complete the sandwich.</li>
         </ol>
         <p>Enjoy your turkey sandwich!</p>
         `;
@@ -219,25 +229,24 @@ function showRecipe() {
         <h2>Fried Chicken Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 whole chicken, cut into pieces</li>
-            <li>2 cups buttermilk</li>
-            <li>2 cups all-purpose flour</li>
-            <li>2 teaspoons salt</li>
-            <li>1 teaspoon black pepper</li>
+            <li>4 chicken pieces (legs, thighs, or breasts)</li>
+            <li>1 cup buttermilk</li>
+            <li>1 cup all-purpose flour</li>
             <li>1 teaspoon paprika</li>
             <li>1 teaspoon garlic powder</li>
             <li>1 teaspoon onion powder</li>
-            <li>Vegetable oil for frying</li>
+            <li>1/2 teaspoon salt</li>
+            <li>1/2 teaspoon black pepper</li>
+            <li>Oil for frying</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Place the chicken pieces in a large bowl and pour the buttermilk over them. Cover and refrigerate for at least 2 hours or overnight.</li>
-            <li>In a shallow dish, combine the flour, salt, pepper, paprika, garlic powder, and onion powder.</li>
-            <li>Heat about 1 inch of vegetable oil in a large skillet over medium-high heat until it reaches 350°F (175°C).</li>
-            <li>Remove the chicken from the buttermilk, letting the excess drip off, and dredge each piece in the flour mixture, coating it evenly.</li>
-            <li>Carefully place the chicken pieces in the hot oil and fry for about 10-12 minutes per side, or until golden brown and cooked through (internal temperature should reach 165°F or 75°C).</li>
-            <li>Transfer the fried chicken to a paper towel-lined plate to drain excess oil.</li>
-            <li>Let the chicken rest for a few minutes before serving.</li>
+            <li>Marinate the chicken in buttermilk for at least 2 hours or overnight in the refrigerator.</li>
+            <li>In a shallow dish, combine the flour, paprika, garlic powder, onion powder, salt, and pepper.</li>
+            <li>Heat oil in a deep skillet or fryer to 350°F (175°C).</li>
+            <li>Dredge each piece of chicken in the flour mixture, coating evenly.</li>
+            <li>Fry the chicken in hot oil until golden brown and cooked through, about 10-15 minutes, depending on the size of the pieces.</li>
+            <li>Drain the fried chicken on paper towels before serving.</li>
         </ol>
         <p>Enjoy your fried chicken!</p>
         `;
@@ -246,35 +255,44 @@ function showRecipe() {
         <h2>Hot Dog Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>Hot dog sausages</li>
-            <li>Hot dog buns</li>
-            <li>Condiments (ketchup, mustard, relish, etc.)</li>
-            <li>Optional toppings (onions, sauerkraut, cheese, etc.)</li>
+            <li>4 hot dog sausages</li>
+            <li>4 hot dog buns</li>
+            <li>Ketchup and mustard</li>
+            <li>Relish (optional)</li>
+            <li>Chopped onions (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Heat a grill or stovetop griddle over medium heat.</li>
-            <li>Place the hot dog sausages on the grill and cook for about 5-7 minutes, turning occasionally, until heated through and slightly charred.</li>
-            <li>Toast the hot dog buns on the grill for about 1-2 minutes.</li>
-            <li>Place each hot dog sausage in a bun and add your favorite condiments and toppings.</li>
+            <li>Preheat a grill or stovetop pan over medium heat.</li>
+            <li>Cook the hot dog sausages, turning occasionally, until they are heated through and have grill marks, about 5-7 minutes.</li>
+            <li>Meanwhile, toast the hot dog buns on the grill or in a toaster if desired.</li>
+            <li>Place each sausage in a bun and top with ketchup, mustard, relish, and chopped onions as desired.</li>
         </ol>
-        <p>Enjoy your hot dog!</p>
+        <p>Enjoy your hot dogs!</p>
         `;
     } else if (recipe === 'ramen') {
         recipeOutput.innerHTML = `
         <h2>Ramen Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 pack instant ramen noodles</li>
+            <li>2 packs instant ramen noodles</li>
             <li>2 cups water</li>
-            <li>Optional add-ins (soft-boiled egg, sliced green onions, cooked chicken, vegetables, etc.)</li>
+            <li>1 cup broth (chicken, beef, or vegetable)</li>
+            <li>1 clove garlic, minced</li>
+            <li>1 tablespoon soy sauce</li>
+            <li>1/2 teaspoon sesame oil</li>
+            <li>1/2 cup chopped vegetables (e.g., carrots, mushrooms, spinach)</li>
+            <li>1-2 cooked eggs (optional)</li>
+            <li>Chopped green onions for garnish</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring the water to a boil in a saucepan.</li>
-            <li>Add the ramen noodles and cook according to the package instructions, usually about 3-4 minutes.</li>
-            <li>Stir in the seasoning packet and any optional add-ins.</li>
-            <li>Serve hot.</li>
+            <li>In a pot, heat the garlic in sesame oil over medium heat until fragrant.</li>
+            <li>Add the broth and water and bring to a boil.</li>
+            <li>Add the instant ramen noodles and cook according to package instructions, usually about 3 minutes.</li>
+            <li>Add the chopped vegetables and cook until tender.</li>
+            <li>Stir in the soy sauce and season with additional salt or pepper if needed.</li>
+            <li>Serve the ramen with a cooked egg and garnish with chopped green onions.</li>
         </ol>
         <p>Enjoy your ramen!</p>
         `;
@@ -283,33 +301,55 @@ function showRecipe() {
         <h2>Dumplings Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 pound ground pork or chicken</li>
+            <li>1 package dumpling wrappers</li>
+            <li>1/2 pound ground pork</li>
             <li>1/2 cup finely chopped cabbage</li>
-            <li>1/4 cup finely chopped green onions</li>
+            <li>2 green onions, chopped</li>
             <li>2 cloves garlic, minced</li>
             <li>1 tablespoon soy sauce</li>
-            <li>1 teaspoon sesame oil</li>
-            <li>1 teaspoon grated ginger</li>
-            <li>1 pack dumpling wrappers</li>
-            <li>Vegetable oil for frying</li>
-            <li>Water for steaming</li>
-            <li>Optional dipping sauce (soy sauce, vinegar, chili oil, etc.)</li>
+            <li>1 tablespoon sesame oil</li>
+            <li>1/2 teaspoon ginger, grated</li>
+            <li>Salt and pepper to taste</li>
+            <li>Oil for frying</li>
+            <li>Water for sealing wrappers</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a large bowl, combine the ground meat, cabbage, green onions, garlic, soy sauce, sesame oil, and ginger. Mix well.</li>
-            <li>Place a small spoonful of the filling in the center of each dumpling wrapper.</li>
-            <li>Moisten the edges of the wrapper with water and fold to seal, pleating the edges if desired.</li>
-            <li>Heat a tablespoon of vegetable oil in a large skillet over medium-high heat.</li>
-            <li>Place the dumplings in the skillet and cook for 2-3 minutes, until the bottoms are golden brown.</li>
-            <li>Add 1/4 cup of water to the skillet and cover with a lid. Steam the dumplings for 5-6 minutes, until the filling is cooked through and the wrappers are tender.</li>
-            <li>Remove the lid and cook for an additional 1-2 minutes to crisp up the bottoms.</li>
-            <li>Serve the dumplings hot with your favorite dipping sauce.</li>
+            <li>In a bowl, combine the ground pork, cabbage, green onions, garlic, soy sauce, sesame oil, ginger, salt, and pepper.</li>
+            <li>Place a small spoonful of filling in the center of each dumpling wrapper.</li>
+            <li>Moisten the edges of the wrapper with a little water and fold the wrapper in half to form a half-moon shape. Pinch the edges to seal tightly.</li>
+            <li>Heat a little oil in a skillet over medium-high heat. Add the dumplings and cook until the bottoms are golden brown.</li>
+            <li>Add a few tablespoons of water to the pan, cover, and steam the dumplings for about 5 minutes or until cooked through.</li>
+            <li>Serve the dumplings with dipping sauce if desired.</li>
         </ol>
         <p>Enjoy your dumplings!</p>
         `;
-    } else {
-        recipeOutput.innerHTML = '<p>Please select a recipe from the dropdown menu.</p>';
+    } else if (recipe === 'beef_burger') {
+        recipeOutput.innerHTML = `
+        <h2>Beef Burger Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 pound ground beef (80% lean)</li>
+            <li>1 teaspoon salt</li>
+            <li>1/2 teaspoon black pepper</li>
+            <li>4 hamburger buns</li>
+            <li>4 slices cheddar cheese (optional)</li>
+            <li>Lettuce leaves</li>
+            <li>Tomato slices</li>
+            <li>Pickles (optional)</li>
+            <li>Ketchup and mustard</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat your grill or stovetop pan over medium-high heat.</li>
+            <li>In a bowl, gently mix the ground beef with salt and pepper. Form the mixture into 4 equally sized patties, about 1/2 inch thick.</li>
+            <li>Cook the patties on the grill or pan for about 4-5 minutes per side, or until they reach your desired level of doneness.</li>
+            <li>If using cheese, place a slice on each patty during the last minute of cooking and cover with a lid to melt.</li>
+            <li>Toast the hamburger buns on the grill or in a toaster if desired.</li>
+            <li>Assemble the burgers by placing each patty on a bun and adding lettuce, tomato, pickles, and your favorite condiments.</li>
+        </ol>
+        <p>Enjoy your homemade beef burger!</p>
+        `;
     }
 }
 </script>
