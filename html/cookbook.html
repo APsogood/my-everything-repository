@@ -35,6 +35,10 @@
     <label for="beef_burger">Beef Burger</label><br>
     <input type="radio" id="chicken_burger" name="recipe" value="chicken_burger">
     <label for="chicken_burger">Chicken Burger</label><br>
+
+    <input type="radio" id="ny_cheesecake" name="recipe" value="ny_cheesecake">
+    <label for="ny_cheesecake">New York-style Cheesecake</label><br>
+
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
 
@@ -50,62 +54,42 @@ function showRecipe() {
         <h2>Cheese Pizza Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>2 1/4 teaspoons active dry yeast (1 packet)</li>
-            <li>1 1/2 cups warm water (about 110°F)</li>
-            <li>3 1/2 to 4 cups all-purpose flour</li>
-            <li>2 tablespoons olive oil</li>
-            <li>2 teaspoons sugar</li>
-            <li>2 teaspoons salt</li>
-            <li>1 cup tomato sauce or crushed tomatoes</li>
-            <li>1 clove garlic, minced</li>
+            <li>1 pizza dough</li>
+            <li>1 cup pizza sauce</li>
+            <li>2 cups shredded mozzarella cheese</li>
+            <li>1/2 cup grated Parmesan cheese</li>
             <li>1 tablespoon olive oil</li>
             <li>1 teaspoon dried oregano</li>
             <li>1 teaspoon dried basil</li>
-            <li>Salt and pepper to taste</li>
-            <li>2 cups shredded mozzarella cheese</li>
-            <li>1/4 cup grated Parmesan cheese</li>
-            <li>Fresh basil leaves (optional)</li>
-            <li>Olive oil for brushing</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a large bowl, combine the warm water, yeast, and sugar. Stir gently and let it sit for about 5-10 minutes until it becomes frothy.</li>
-            <li>Add the olive oil, salt, and 2 cups of flour to the yeast mixture. Stir until combined.</li>
-            <li>Gradually add more flour, about 1/2 cup at a time, until the dough comes together and is no longer sticky. Turn the dough out onto a floured surface and knead for about 8-10 minutes until smooth and elastic.</li>
-            <li>Place the dough in a lightly oiled bowl, cover with a damp cloth, and let it rise in a warm place for about 1-2 hours, or until it has doubled in size.</li>
-            <li>In a small saucepan, heat the olive oil over medium heat. Add the minced garlic and cook until fragrant, about 1 minute. Add the tomato sauce, oregano, basil, salt, and pepper. Simmer for about 10-15 minutes, then remove from heat and let cool.</li>
-            <li>Preheat your oven to 475°F (245°C) and place a pizza stone or baking sheet inside to heat.</li>
-            <li>Punch down the risen dough and divide it into 2 equal pieces. On a floured surface, roll out one piece of dough into a 12-inch circle.</li>
-            <li>If using a pizza stone, transfer the rolled dough onto a pizza peel dusted with flour or cornmeal. If using a baking sheet, place the dough directly on the sheet.</li>
-            <li>Spread a thin layer of the prepared tomato sauce over the dough, leaving a small border around the edges.</li>
-            <li>Sprinkle the shredded mozzarella cheese evenly over the sauce, then sprinkle the grated Parmesan cheese on top.</li>
-            <li>Slide the pizza onto the preheated pizza stone (or place the baking sheet in the oven). Bake for 10-15 minutes, or until the crust is golden and the cheese is bubbly and slightly browned.</li>
-            <li>Remove the pizza from the oven and let it cool for a few minutes. Brush the crust with a little olive oil for extra flavor. If desired, top with fresh basil leaves before slicing and serving.</li>
-        </ol>
-        <p>Enjoy your homemade cheese pizza!</p>
-        `;
+            <li>Preheat your oven to 475°F (245°C).</li>
+            <li>Roll out the pizza dough on a floured surface to your desired thickness.</li>
+            <li>Transfer the dough to a pizza stone or baking sheet.</li>
+            <li>Spread the pizza sauce evenly over the dough.</li>
+            <li>Sprinkle the mozzarella cheese and Parmesan cheese over the sauce.</li>
+            <li>Drizzle with olive oil and sprinkle with oregano and basil.</li>
+            <li>Bake in the preheated oven for 12-15 minutes or until the crust is golden brown and the cheese is bubbly.</li>
+            <li>Let the pizza cool for a few minutes before slicing and serving.</li>
+        </ol>`;
     } else if (recipe === 'scrambled_eggs') {
         recipeOutput.innerHTML = `
         <h2>Scrambled Eggs Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>4 large eggs</li>
-            <li>1/4 cup milk (optional)</li>
+            <li>1/4 cup milk</li>
             <li>Salt and pepper to taste</li>
-            <li>1 tablespoon butter or oil</li>
-            <li>Fresh herbs (optional)</li>
+            <li>1 tablespoon butter</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Crack the eggs into a bowl. Add the milk (if using), salt, and pepper. Beat the mixture until well combined.</li>
-            <li>Heat the butter or oil in a non-stick skillet over medium heat until melted and bubbling.</li>
-            <li>Pour in the egg mixture and let it sit, without stirring, for a few seconds.</li>
-            <li>As the eggs begin to set, gently stir them with a spatula, pushing the eggs from the edges of the skillet toward the center.</li>
-            <li>Continue to cook until the eggs are just set but still slightly runny. Remove from heat as they will continue to cook in the residual heat.</li>
-            <li>Garnish with fresh herbs if desired and serve immediately.</li>
-        </ol>
-        <p>Enjoy your scrambled eggs!</p>
-        `;
+            <li>In a bowl, whisk together the eggs, milk, salt, and pepper.</li>
+            <li>Heat the butter in a non-stick skillet over medium heat until melted.</li>
+            <li>Pour the egg mixture into the skillet and cook, stirring gently, until the eggs are just set but still slightly soft.</li>
+            <li>Remove from heat and serve immediately.</li>
+        </ol>`;
     } else if (recipe === 'sushi') {
         recipeOutput.innerHTML = `
         <h2>Sushi Recipe</h2>
@@ -113,124 +97,109 @@ function showRecipe() {
         <ul>
             <li>2 cups sushi rice</li>
             <li>2 1/2 cups water</li>
-            <li>1/3 cup rice vinegar</li>
-            <li>3 tablespoons sugar</li>
+            <li>1/2 cup rice vinegar</li>
+            <li>1/4 cup sugar</li>
             <li>1 teaspoon salt</li>
-            <li>Nori (seaweed sheets)</li>
-            <li>Assorted fillings (e.g., sliced fish, cucumber, avocado, crab sticks, etc.)</li>
+            <li>Nori (seaweed) sheets</li>
+            <li>Fresh fish or vegetables (e.g., cucumber, avocado)</li>
             <li>Soy sauce, pickled ginger, and wasabi for serving</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
             <li>Rinse the sushi rice under cold water until the water runs clear.</li>
-            <li>Combine the rice and water in a rice cooker and cook according to the manufacturer's instructions. Alternatively, combine in a saucepan, bring to a boil, reduce heat to low, cover, and cook for about 20 minutes or until water is absorbed.</li>
-            <li>In a small bowl, mix the rice vinegar, sugar, and salt until dissolved. Once the rice is cooked, transfer it to a large bowl and gently fold in the vinegar mixture. Let the rice cool to room temperature.</li>
-            <li>Cut your chosen fillings into thin strips.</li>
-            <li>Place a sheet of nori on a bamboo sushi mat (or clean kitchen towel). Spread a thin layer of rice over the nori, leaving about 1 inch of nori at the top edge.</li>
-            <li>Arrange your fillings in a line across the center of the rice.</li>
-            <li>Using the sushi mat, gently roll the sushi from the bottom, pressing firmly to shape it into a log. Seal the edge of the nori with a little water.</li>
-            <li>Slice the roll into bite-sized pieces using a sharp knife.</li>
+            <li>Combine the rice and water in a rice cooker and cook according to the manufacturer's instructions.</li>
+            <li>While the rice is cooking, heat the rice vinegar, sugar, and salt in a small saucepan until dissolved. Allow to cool.</li>
+            <li>Once the rice is cooked, transfer it to a large bowl and gently fold in the vinegar mixture. Allow to cool to room temperature.</li>
+            <li>Lay a sheet of nori on a bamboo sushi mat covered with plastic wrap.</li>
+            <li>Spread a thin layer of rice over the nori, leaving a small border at the top edge.</li>
+            <li>Add your choice of fish or vegetables in a line across the center of the rice.</li>
+            <li>Roll the sushi tightly using the bamboo mat, then slice into bite-sized pieces.</li>
             <li>Serve with soy sauce, pickled ginger, and wasabi.</li>
-        </ol>
-        <p>Enjoy your homemade sushi!</p>
-        `;
+        </ol>`;
     } else if (recipe === 'pasta') {
         recipeOutput.innerHTML = `
         <h2>Pasta Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>8 ounces pasta (e.g., spaghetti, penne, or your choice)</li>
-            <li>1 tablespoon olive oil</li>
+            <li>12 ounces pasta (e.g., spaghetti, penne)</li>
+            <li>2 tablespoons olive oil</li>
             <li>2 cloves garlic, minced</li>
-            <li>1 can (14.5 ounces) diced tomatoes</li>
-            <li>1/4 cup tomato paste</li>
+            <li>1 can (14.5 ounces) crushed tomatoes</li>
             <li>1 teaspoon dried basil</li>
-            <li>1 teaspoon dried oregano</li>
+            <li>1/2 teaspoon dried oregano</li>
             <li>Salt and pepper to taste</li>
-            <li>Grated Parmesan cheese (optional)</li>
-            <li>Fresh basil leaves (optional)</li>
+            <li>1/4 cup grated Parmesan cheese</li>
+            <li>Fresh basil leaves for garnish (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Cook the pasta according to package instructions until al dente. Drain and set aside.</li>
-            <li>In a large skillet, heat the olive oil over medium heat. Add the minced garlic and cook until fragrant, about 1 minute.</li>
-            <li>Add the diced tomatoes, tomato paste, dried basil, and dried oregano. Stir to combine and simmer for 10-15 minutes, until the sauce has thickened slightly.</li>
-            <li>Season with salt and pepper to taste.</li>
-            <li>Add the cooked pasta to the sauce and toss to coat evenly.</li>
+            <li>Cook the pasta according to the package instructions. Drain and set aside.</li>
+            <li>Heat the olive oil in a large skillet over medium heat. Add the garlic and cook for 1-2 minutes until fragrant.</li>
+            <li>Add the crushed tomatoes, dried basil, and dried oregano to the skillet. Season with salt and pepper.</li>
+            <li>Simmer the sauce for 10-15 minutes, stirring occasionally.</li>
+            <li>Toss the cooked pasta with the sauce until well coated.</li>
             <li>Serve with grated Parmesan cheese and fresh basil leaves if desired.</li>
-        </ol>
-        <p>Enjoy your pasta!</p>
-        `;
+        </ol>`;
     } else if (recipe === 'coffee') {
         recipeOutput.innerHTML = `
         <h2>Coffee Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>1 cup water</li>
-            <li>2 tablespoons ground coffee</li>
+            <li>2 tablespoons coffee grounds</li>
             <li>Milk or cream (optional)</li>
             <li>Sugar (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring the water to a boil in a kettle or saucepan.</li>
-            <li>Place the ground coffee in a coffee filter or a French press.</li>
-            <li>Pour the boiling water over the coffee grounds and let it steep for about 4 minutes.</li>
-            <li>If using a French press, press the plunger down slowly after steeping.</li>
-            <li>Pour the coffee into a cup and add milk, cream, or sugar if desired.</li>
-        </ol>
-        <p>Enjoy your coffee!</p>
-        `;
+            <li>Heat the water in a kettle until boiling.</li>
+            <li>Add the coffee grounds to a coffee filter or coffee maker.</li>
+            <li>Pour the boiling water over the coffee grounds and let it brew for about 4 minutes.</li>
+            <li>Remove the coffee grounds and pour the coffee into a cup.</li>
+            <li>Add milk, cream, or sugar if desired.</li>
+        </ol>`;
     } else if (recipe === 'tea') {
         recipeOutput.innerHTML = `
         <h2>Tea Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>1 cup water</li>
-            <li>1 tea bag or 1 tablespoon loose tea leaves</li>
-            <li>Milk (optional)</li>
+            <li>1 tea bag (black, green, or herbal)</li>
+            <li>Milk or lemon (optional)</li>
             <li>Sugar or honey (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Bring the water to a boil in a kettle or saucepan.</li>
-            <li>Place the tea bag or loose tea leaves in a cup or teapot.</li>
-            <li>Pour the boiling water over the tea and let it steep for about 3-5 minutes, depending on your preference.</li>
-            <li>Remove the tea bag or strain the tea leaves.</li>
-            <li>Add milk, sugar, or honey if desired.</li>
-        </ol>
-        <p>Enjoy your tea!</p>
-        `;
+            <li>Heat the water in a kettle until boiling.</li>
+            <li>Place the tea bag in a cup.</li>
+            <li>Pour the boiling water over the tea bag and let it steep for 3-5 minutes.</li>
+            <li>Remove the tea bag and add milk, lemon, sugar, or honey if desired.</li>
+        </ol>`;
     } else if (recipe === 'turkey_sandwich') {
         recipeOutput.innerHTML = `
         <h2>Turkey Sandwich Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>2 slices of bread</li>
-            <li>2-3 slices of turkey breast</li>
-            <li>1-2 slices of cheese (optional)</li>
-            <li>Lettuce leaves</li>
-            <li>Tomato slices</li>
-            <li>Mayonnaise or mustard</li>
-            <li>Salt and pepper to taste</li>
+            <li>3-4 slices of turkey breast</li>
+            <li>1 slice of cheese (optional)</li>
+            <li>1 leaf of lettuce</li>
+            <li>2 slices of tomato</li>
+            <li>Mayonnaise or mustard (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Spread mayonnaise or mustard on one side of each slice of bread.</li>
-            <li>Layer the turkey breast slices on one slice of bread.</li>
-            <li>Top with cheese slices, lettuce leaves, and tomato slices.</li>
-            <li>Season with salt and pepper if desired.</li>
-            <li>Cover with the other slice of bread, spread side down.</li>
+            <li>Spread mayonnaise or mustard on one side of each slice of bread if desired.</li>
+            <li>Layer the turkey, cheese, lettuce, and tomato on one slice of bread.</li>
+            <li>Top with the second slice of bread.</li>
             <li>Cut the sandwich in half and serve.</li>
-        </ol>
-        <p>Enjoy your turkey sandwich!</p>
-        `;
+        </ol>`;
     } else if (recipe === 'fried_chicken') {
         recipeOutput.innerHTML = `
         <h2>Fried Chicken Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>4 chicken pieces (legs or breasts)</li>
+            <li>4 chicken pieces (legs or thighs)</li>
             <li>1 cup buttermilk</li>
             <li>1 cup all-purpose flour</li>
             <li>1 tablespoon paprika</li>
@@ -241,37 +210,32 @@ function showRecipe() {
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Place the chicken pieces in a bowl and cover with buttermilk. Marinate in the refrigerator for at least 1 hour.</li>
-            <li>In a separate bowl, combine the flour, paprika, garlic powder, onion powder, salt, and pepper.</li>
-            <li>Heat vegetable oil in a large skillet over medium heat (about 350°F or 175°C).</li>
-            <li>Remove the chicken from the buttermilk and dredge in the flour mixture, coating evenly.</li>
-            <li>Fry the chicken in the hot oil until golden brown and cooked through, about 8-10 minutes per side, depending on the size of the pieces.</li>
-            <li>Drain on paper towels and let rest for a few minutes before serving.</li>
-        </ol>
-        <p>Enjoy your fried chicken!</p>
-        `;
+            <li>Marinate the chicken pieces in buttermilk for at least 1 hour or overnight.</li>
+            <li>In a large bowl, mix the flour, paprika, garlic powder, onion powder, salt, and pepper.</li>
+            <li>Remove the chicken from the buttermilk and coat each piece in the flour mixture.</li>
+            <li>Heat the vegetable oil in a large skillet over medium-high heat.</li>
+            <li>Fry the chicken pieces for about 10-15 minutes on each side, or until golden brown and cooked through.</li>
+            <li>Drain on paper towels before serving.</li>
+        </ol>`;
     } else if (recipe === 'hotdog') {
         recipeOutput.innerHTML = `
         <h2>Hot Dog Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
+            <li>4 hot dog sausages</li>
             <li>4 hot dog buns</li>
-            <li>4 hot dogs</li>
             <li>Ketchup</li>
             <li>Mustard</li>
             <li>Relish (optional)</li>
-            <li>Onions (optional)</li>
-            <li>Pickles (optional)</li>
+            <li>Onions, chopped (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Preheat your grill or stovetop grill pan to medium-high heat.</li>
-            <li>Grill the hot dogs for about 5-7 minutes, turning occasionally, until they are heated through and have grill marks.</li>
-            <li>Toast the buns on the grill for about 1 minute until lightly browned.</li>
-            <li>Place each hot dog in a bun and add your desired toppings: ketchup, mustard, relish, onions, pickles, etc.</li>
-        </ol>
-        <p>Enjoy your hot dogs!</p>
-        `;
+            <li>Grill or cook the hot dog sausages according to package instructions.</li>
+            <li>Place each sausage in a hot dog bun.</li>
+            <li>Top with ketchup, mustard, relish, and onions if desired.</li>
+            <li>Serve hot.</li>
+        </ol>`;
     } else if (recipe === 'ramen') {
         recipeOutput.innerHTML = `
         <h2>Ramen Recipe</h2>
@@ -280,109 +244,114 @@ function showRecipe() {
             <li>2 packs of instant ramen noodles</li>
             <li>2 cups water</li>
             <li>1 tablespoon soy sauce</li>
-            <li>1 teaspoon sesame oil</li>
-            <li>1 clove garlic, minced</li>
-            <li>1/2 cup sliced mushrooms</li>
-            <li>1/2 cup spinach or other greens</li>
+            <li>1/2 cup sliced green onions</li>
+            <li>1/2 cup cooked chicken, pork, or tofu (optional)</li>
+            <li>1/4 cup sliced mushrooms (optional)</li>
             <li>1 egg (optional)</li>
-            <li>Green onions for garnish (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a pot, bring 2 cups of water to a boil.</li>
-            <li>Add the ramen noodles and cook according to package instructions, usually about 3 minutes.</li>
-            <li>In a separate pan, heat the sesame oil over medium heat. Add the minced garlic and sliced mushrooms, and cook until the mushrooms are tender.</li>
-            <li>Add the cooked mushrooms and garlic to the pot with ramen. Stir in the soy sauce.</li>
-            <li>Add the spinach or other greens and cook for another minute until wilted.</li>
-            <li>If using, crack an egg into the pot and let it cook for about 2 minutes until the white is set but the yolk is still runny.</li>
-            <li>Garnish with green onions if desired and serve hot.</li>
-        </ol>
-        <p>Enjoy your ramen!</p>
-        `;
+            <li>Boil the water in a pot.</li>
+            <li>Add the instant ramen noodles and cook according to package instructions.</li>
+            <li>Add the soy sauce and any additional ingredients like green onions, meat, or mushrooms.</li>
+            <li>If using an egg, crack it into the pot and let it poach for 2-3 minutes.</li>
+            <li>Serve hot.</li>
+        </ol>`;
     } else if (recipe === 'dumplings') {
         recipeOutput.innerHTML = `
         <h2>Dumplings Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 cup all-purpose flour</li>
-            <li>1/2 cup water</li>
-            <li>1/2 pound ground pork or chicken</li>
-            <li>1/4 cup finely chopped cabbage</li>
-            <li>1 clove garlic, minced</li>
+            <li>1 package dumpling wrappers</li>
+            <li>1 cup ground pork or chicken</li>
+            <li>1/2 cup finely chopped cabbage</li>
+            <li>2 green onions, chopped</li>
             <li>1 tablespoon soy sauce</li>
             <li>1 teaspoon grated ginger</li>
-            <li>Salt and pepper to taste</li>
-            <li>Oil for frying or steaming</li>
+            <li>1 tablespoon sesame oil</li>
+            <li>Vegetable oil for frying</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a bowl, combine the flour and water to form a dough. Knead until smooth and let rest for 30 minutes.</li>
-            <li>In a separate bowl, mix the ground pork or chicken, chopped cabbage, minced garlic, soy sauce, grated ginger, salt, and pepper until well combined.</li>
-            <li>Divide the dough into small balls and roll each ball into a thin circle.</li>
-            <li>Place a small spoonful of filling in the center of each dough circle. Fold the dough over the filling and pinch the edges to seal, forming a dumpling.</li>
-            <li>To cook, heat oil in a skillet over medium heat. Add the dumplings and cook until golden brown on the bottom. Add a little water to the pan and cover to steam the dumplings for about 5 minutes until cooked through.</li>
-            <li>Alternatively, steam the dumplings in a steamer basket for about 10 minutes until cooked through.</li>
-        </ol>
-        <p>Enjoy your dumplings!</p>
-        `;
+            <li>In a bowl, mix the ground meat, cabbage, green onions, soy sauce, ginger, and sesame oil.</li>
+            <li>Place a spoonful of filling in the center of each dumpling wrapper.</li>
+            <li>Fold the wrapper in half and seal the edges by pinching them together.</li>
+            <li>Heat vegetable oil in a skillet over medium heat.</li>
+            <li>Add the dumplings and cook for 2-3 minutes until the bottoms are golden brown.</li>
+            <li>Add a splash of water to the skillet, cover, and steam for an additional 5 minutes.</li>
+            <li>Serve with dipping sauce.</li>
+        </ol>`;
     } else if (recipe === 'beef_burger') {
         recipeOutput.innerHTML = `
         <h2>Beef Burger Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>1 pound ground beef</li>
-            <li>1/4 cup breadcrumbs</li>
-            <li>1 egg</li>
-            <li>1 tablespoon Worcestershire sauce</li>
             <li>Salt and pepper to taste</li>
             <li>4 hamburger buns</li>
-            <li>Cheese slices (optional)</li>
-            <li>Lettuce, tomato, onion, pickles (for toppings)</li>
-            <li>Ketchup, mustard, mayonnaise (for condiments)</li>
+            <li>4 slices of cheese (optional)</li>
+            <li>Lettuce, tomato, and pickles for topping</li>
+            <li>Ketchup and mustard (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a bowl, combine the ground beef, breadcrumbs, egg, Worcestershire sauce, salt, and pepper. Mix gently until just combined.</li>
-            <li>Divide the mixture into 4 equal portions and shape each into a patty.</li>
-            <li>Preheat your grill or skillet over medium-high heat. Cook the patties for about 4-5 minutes per side, or until they reach your desired level of doneness.</li>
-            <li>If using cheese, place a slice on each patty during the last minute of cooking to melt.</li>
-            <li>Toast the hamburger buns on the grill or in a toaster if desired.</li>
-            <li>Assemble the burgers by placing the cooked patties on the bottom half of each bun. Add your desired toppings and condiments, then top with the other half of the bun.</li>
-        </ol>
-        <p>Enjoy your homemade beef burger!</p>
-        `;
+            <li>Form the ground beef into 4 equal patties.</li>
+            <li>Season both sides of the patties with salt and pepper.</li>
+            <li>Grill or pan-fry the patties over medium-high heat for 4-5 minutes on each side, or until cooked to your desired level of doneness.</li>
+            <li>If using cheese, place a slice on each patty during the last minute of cooking and cover to melt.</li>
+            <li>Toast the hamburger buns if desired.</li>
+            <li>Assemble the burgers with your choice of toppings and condiments.</li>
+        </ol>`;
     } else if (recipe === 'chicken_burger') {
         recipeOutput.innerHTML = `
         <h2>Chicken Burger Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
             <li>1 pound ground chicken</li>
-            <li>1/4 cup breadcrumbs</li>
-            <li>1 egg</li>
-            <li>1 tablespoon olive oil</li>
-            <li>1 clove garlic, minced</li>
-            <li>1 teaspoon dried thyme</li>
             <li>Salt and pepper to taste</li>
             <li>4 hamburger buns</li>
-            <li>Cheese slices (optional)</li>
-            <li>Lettuce, tomato, onion, pickles (for toppings)</li>
-            <li>Ketchup, mustard, mayonnaise (for condiments)</li>
+            <li>4 slices of cheese (optional)</li>
+            <li>Lettuce, tomato, and pickles for topping</li>
+            <li>Ketchup and mustard (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a bowl, combine the ground chicken, breadcrumbs, egg, olive oil, minced garlic, dried thyme, salt, and pepper. Mix gently until just combined.</li>
-            <li>Divide the mixture into 4 equal portions and shape each into a patty.</li>
-            <li>Preheat your grill or skillet over medium-high heat. Cook the patties for about 5-6 minutes per side, or until they reach an internal temperature of 165°F (74°C).</li>
-            <li>If using cheese, place a slice on each patty during the last minute of cooking to melt.</li>
-            <li>Toast the hamburger buns on the grill or in a toaster if desired.</li>
-            <li>Assemble the burgers by placing the cooked patties on the bottom half of each bun. Add your desired toppings and condiments, then top with the other half of the bun.</li>
-        </ol>
-        <p>Enjoy your homemade chicken burger!</p>
-        `;
+            <li>Form the ground chicken into 4 equal patties.</li>
+            <li>Season both sides of the patties with salt and pepper.</li>
+            <li>Grill or pan-fry the patties over medium-high heat for 5-6 minutes on each side, or until fully cooked and the internal temperature reaches 165°F (74°C).</li>
+            <li>If using cheese, place a slice on each patty during the last minute of cooking and cover to melt.</li>
+            <li>Toast the hamburger buns if desired.</li>
+            <li>Assemble the burgers with your choice of toppings and condiments.</li>
+        </ol>`;
+    } else if (recipe === 'ny_cheesecake') {
+        recipeOutput.innerHTML = `
+        <h2>New York-style Cheesecake Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 1/2 cups graham cracker crumbs</li>
+            <li>1/4 cup granulated sugar</li>
+            <li>1/2 cup unsalted butter, melted</li>
+            <li>4 (8-ounce) packages cream cheese, softened</li>
+            <li>1 cup granulated sugar</li>
+            <li>1 teaspoon vanilla extract</li>
+            <li>4 large eggs</li>
+            <li>1 cup sour cream</li>
+            <li>1 cup heavy cream</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat your oven to 325°F (163°C). Grease a 9-inch springform pan.</li>
+            <li>In a medium bowl, mix the graham cracker crumbs, sugar, and melted butter until combined. Press the mixture into the bottom of the prepared pan to form the crust.</li>
+            <li>In a large bowl, beat the cream cheese until smooth. Add the sugar and vanilla extract, and continue to beat until well combined.</li>
+            <li>Add the eggs, one at a time, beating well after each addition. Add the sour cream and mix until smooth.</li>
+            <li>Pour the cream cheese mixture over the crust in the springform pan.</li>
+            <li>Bake for 60-70 minutes, or until the edges are set and the center is slightly jiggly. Turn off the oven and leave the cheesecake in the oven for 1 hour.</li>
+            <li>Remove the cheesecake from the oven and cool to room temperature. Refrigerate for at least 4 hours or overnight.</li>
+            <li>Whip the heavy cream until soft peaks form and spread it over the top of the chilled cheesecake before serving.</li>
+        </ol>`;
     }
 }
 </script>
 
 </body>
 </html>
-
