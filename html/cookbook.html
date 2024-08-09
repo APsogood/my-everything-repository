@@ -37,7 +37,7 @@
     <label for="chicken_burger">Chicken Burger</label><br>
 
     <input type="radio" id="ny_cheesecake" name="recipe" value="ny_cheesecake">
-    <label for="ny_cheesecake">New York-Style Cheesecake</label><br>
+    <label for="ny_cheesecake">New York-Style Strawberry Cheesecake</label><br>
 
     <button type="button" onclick="showRecipe()">Show Recipe</button>
 </form>
@@ -153,10 +153,10 @@ function showRecipe() {
         <h3>Instructions:</h3>
         <ol>
             <li>Heat the water in a kettle until boiling.</li>
-            <li>Add the coffee grounds to a coffee filter or coffee maker.</li>
-            <li>Pour the boiling water over the coffee grounds and let it brew for about 4 minutes.</li>
-            <li>Remove the coffee grounds and pour the coffee into a cup.</li>
-            <li>Add milk, cream, or sugar if desired.</li>
+            <li>Add the coffee grounds to a French press or coffee maker.</li>
+            <li>Pour the hot water over the coffee grounds and let it brew for 4-5 minutes.</li>
+            <li>Press the plunger on the French press or pour the coffee from the coffee maker.</li>
+            <li>Add milk, cream, or sugar to taste, if desired.</li>
         </ol>`;
     } else if (recipe === 'tea') {
         recipeOutput.innerHTML = `
@@ -164,16 +164,17 @@ function showRecipe() {
         <h3>Ingredients:</h3>
         <ul>
             <li>1 cup water</li>
-            <li>1 tea bag (black, green, or herbal)</li>
-            <li>Milk or lemon (optional)</li>
+            <li>1 tea bag or 1 teaspoon loose tea leaves</li>
             <li>Sugar or honey (optional)</li>
+            <li>Milk or lemon (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
             <li>Heat the water in a kettle until boiling.</li>
-            <li>Place the tea bag in a cup.</li>
-            <li>Pour the boiling water over the tea bag and let it steep for 3-5 minutes.</li>
-            <li>Remove the tea bag and add milk, lemon, sugar, or honey if desired.</li>
+            <li>Place the tea bag or loose tea leaves in a teapot or cup.</li>
+            <li>Pour the hot water over the tea and let it steep for 3-5 minutes.</li>
+            <li>Remove the tea bag or strain out the loose tea leaves.</li>
+            <li>Add sugar, honey, milk, or lemon to taste, if desired.</li>
         </ol>`;
     } else if (recipe === 'turkey_sandwich') {
         recipeOutput.innerHTML = `
@@ -181,16 +182,18 @@ function showRecipe() {
         <h3>Ingredients:</h3>
         <ul>
             <li>2 slices of bread</li>
-            <li>3-4 slices of turkey breast</li>
-            <li>1 slice of cheese (optional)</li>
-            <li>1 leaf of lettuce</li>
-            <li>2 slices of tomato</li>
-            <li>Mayonnaise or mustard (optional)</li>
+            <li>4 ounces sliced turkey</li>
+            <li>1 slice of cheese</li>
+            <li>Lettuce leaves</li>
+            <li>Tomato slices</li>
+            <li>Mayonnaise or mustard</li>
+            <li>Salt and pepper to taste</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Spread mayonnaise or mustard on one side of each slice of bread if desired.</li>
+            <li>Spread mayonnaise or mustard on one side of each slice of bread.</li>
             <li>Layer the turkey, cheese, lettuce, and tomato on one slice of bread.</li>
+            <li>Season with salt and pepper.</li>
             <li>Top with the second slice of bread.</li>
             <li>Cut the sandwich in half and serve.</li>
         </ol>`;
@@ -199,41 +202,41 @@ function showRecipe() {
         <h2>Fried Chicken Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>4 chicken pieces (legs or thighs)</li>
+            <li>4 chicken thighs or drumsticks</li>
             <li>1 cup buttermilk</li>
             <li>1 cup all-purpose flour</li>
-            <li>1 tablespoon paprika</li>
-            <li>1 teaspoon garlic powder</li>
-            <li>1 teaspoon onion powder</li>
+            <li>1 teaspoon paprika</li>
+            <li>1/2 teaspoon garlic powder</li>
+            <li>1/2 teaspoon onion powder</li>
             <li>Salt and pepper to taste</li>
             <li>Vegetable oil for frying</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Marinate the chicken pieces in buttermilk for at least 1 hour or overnight.</li>
-            <li>In a large bowl, mix the flour, paprika, garlic powder, onion powder, salt, and pepper.</li>
-            <li>Remove the chicken from the buttermilk and coat each piece in the flour mixture.</li>
-            <li>Heat the vegetable oil in a large skillet over medium-high heat.</li>
-            <li>Fry the chicken pieces for about 10-15 minutes on each side, or until golden brown and cooked through.</li>
-            <li>Drain on paper towels before serving.</li>
+            <li>Soak the chicken in buttermilk for at least 1 hour or overnight.</li>
+            <li>In a shallow dish, mix the flour, paprika, garlic powder, onion powder, salt, and pepper.</li>
+            <li>Remove the chicken from the buttermilk and dredge in the seasoned flour, coating it evenly.</li>
+            <li>Heat the oil in a large skillet or deep fryer to 350°F (175°C).</li>
+            <li>Fry the chicken in batches until golden brown and cooked through, about 12-15 minutes per piece.</li>
+            <li>Drain on paper towels and serve hot.</li>
         </ol>`;
     } else if (recipe === 'hotdog') {
         recipeOutput.innerHTML = `
         <h2>Hot Dog Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>4 hot dog sausages</li>
-            <li>4 hot dog buns</li>
-            <li>Ketchup</li>
-            <li>Mustard</li>
-            <li>Relish (optional)</li>
-            <li>Onions, chopped (optional)</li>
+            <li>1 hot dog sausage</li>
+            <li>1 hot dog bun</li>
+            <li>1 tablespoon mustard</li>
+            <li>1 tablespoon ketchup</li>
+            <li>1 tablespoon relish (optional)</li>
+            <li>Chopped onions (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Grill or cook the hot dog sausages according to package instructions.</li>
-            <li>Place each sausage in a hot dog bun.</li>
-            <li>Top with ketchup, mustard, relish, and onions if desired.</li>
+            <li>Heat the hot dog sausage according to the package instructions (boil, grill, or microwave).</li>
+            <li>Place the sausage in the hot dog bun.</li>
+            <li>Top with mustard, ketchup, relish, and onions as desired.</li>
             <li>Serve hot.</li>
         </ol>`;
     } else if (recipe === 'ramen') {
@@ -241,20 +244,19 @@ function showRecipe() {
         <h2>Ramen Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>2 packs of instant ramen noodles</li>
+            <li>1 package instant ramen noodles</li>
             <li>2 cups water</li>
-            <li>1 tablespoon soy sauce</li>
-            <li>1/2 cup sliced green onions</li>
-            <li>1/2 cup cooked chicken, pork, or tofu (optional)</li>
-            <li>1/4 cup sliced mushrooms (optional)</li>
             <li>1 egg (optional)</li>
+            <li>Sliced green onions (optional)</li>
+            <li>Soy sauce (optional)</li>
+            <li>Chili flakes (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Boil the water in a pot.</li>
-            <li>Add the instant ramen noodles and cook according to package instructions.</li>
-            <li>Add the soy sauce and any additional ingredients like green onions, meat, or mushrooms.</li>
-            <li>If using an egg, crack it into the pot and let it poach for 2-3 minutes.</li>
+            <li>Bring the water to a boil in a small saucepan.</li>
+            <li>Add the ramen noodles and cook according to the package instructions.</li>
+            <li>If desired, crack an egg into the boiling water and cook until the egg is set.</li>
+            <li>Stir in sliced green onions, soy sauce, and chili flakes if using.</li>
             <li>Serve hot.</li>
         </ol>`;
     } else if (recipe === 'dumplings') {
@@ -262,95 +264,148 @@ function showRecipe() {
         <h2>Dumplings Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 package dumpling wrappers</li>
-            <li>1 cup ground pork or chicken</li>
-            <li>1/2 cup finely chopped cabbage</li>
-            <li>2 green onions, chopped</li>
+            <li>1/2 pound ground pork or chicken</li>
+            <li>1/4 cup chopped green onions</li>
             <li>1 tablespoon soy sauce</li>
+            <li>1 teaspoon sesame oil</li>
             <li>1 teaspoon grated ginger</li>
-            <li>1 tablespoon sesame oil</li>
+            <li>1 package dumpling wrappers</li>
+            <li>Water for sealing</li>
             <li>Vegetable oil for frying</li>
+            <li>Soy sauce and vinegar for dipping</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>In a bowl, mix the ground meat, cabbage, green onions, soy sauce, ginger, and sesame oil.</li>
-            <li>Place a spoonful of filling in the center of each dumpling wrapper.</li>
-            <li>Fold the wrapper in half and seal the edges by pinching them together.</li>
-            <li>Heat vegetable oil in a skillet over medium heat.</li>
-            <li>Add the dumplings and cook for 2-3 minutes until the bottoms are golden brown.</li>
-            <li>Add a splash of water to the skillet, cover, and steam for an additional 5 minutes.</li>
-            <li>Serve with dipping sauce.</li>
+            <li>In a bowl, combine the ground pork or chicken, green onions, soy sauce, sesame oil, and ginger.</li>
+            <li>Place a small spoonful of the filling in the center of a dumpling wrapper.</li>
+            <li>Moisten the edges of the wrapper with water and fold in half to seal, pressing out any air.</li>
+            <li>Heat the vegetable oil in a non-stick skillet over medium-high heat.</li>
+            <li>Arrange the dumplings in the skillet and fry until the bottoms are golden brown, about 2-3 minutes.</li>
+            <li>Add 1/4 cup of water to the skillet, cover, and steam the dumplings for 5-7 minutes.</li>
+            <li>Serve with soy sauce and vinegar for dipping.</li>
         </ol>`;
     } else if (recipe === 'beef_burger') {
         recipeOutput.innerHTML = `
         <h2>Beef Burger Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 pound ground beef</li>
+            <li>1/2 pound ground beef</li>
             <li>Salt and pepper to taste</li>
-            <li>4 hamburger buns</li>
-            <li>4 slices of cheese (optional)</li>
-            <li>Lettuce, tomato, and pickles for topping</li>
-            <li>Ketchup and mustard (optional)</li>
+            <li>1 hamburger bun</li>
+            <li>Lettuce leaves</li>
+            <li>Tomato slices</li>
+            <li>1 slice of cheese (optional)</li>
+            <li>Ketchup, mustard, mayonnaise (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Form the ground beef into 4 equal patties.</li>
-            <li>Season both sides of the patties with salt and pepper.</li>
-            <li>Grill or pan-fry the patties over medium-high heat for 4-5 minutes on each side, or until cooked to your desired level of doneness.</li>
-            <li>If using cheese, place a slice on each patty during the last minute of cooking and cover to melt.</li>
-            <li>Toast the hamburger buns if desired.</li>
-            <li>Assemble the burgers with your choice of toppings and condiments.</li>
+            <li>Season the ground beef with salt and pepper and form into a patty.</li>
+            <li>Cook the patty in a skillet or on a grill over medium heat, about 4-5 minutes per side for medium doneness.</li>
+            <li>If using cheese, place the slice on the patty during the last minute of cooking.</li>
+            <li>Toast the hamburger bun on the grill or in the skillet.</li>
+            <li>Assemble the burger with the patty, lettuce, tomato, and your choice of condiments.</li>
+            <li>Serve hot.</li>
         </ol>`;
     } else if (recipe === 'chicken_burger') {
         recipeOutput.innerHTML = `
         <h2>Chicken Burger Recipe</h2>
         <h3>Ingredients:</h3>
         <ul>
-            <li>1 pound ground chicken</li>
+            <li>1/2 pound ground chicken</li>
+            <li>1/4 cup breadcrumbs</li>
+            <li>1 egg</li>
             <li>Salt and pepper to taste</li>
-            <li>4 hamburger buns</li>
-            <li>4 slices of cheese (optional)</li>
-            <li>Lettuce, tomato, and pickles for topping</li>
-            <li>Ketchup and mustard (optional)</li>
+            <li>1 hamburger bun</li>
+            <li>Lettuce leaves</li>
+            <li>Tomato slices</li>
+            <li>Ketchup, mustard, mayonnaise (optional)</li>
         </ul>
         <h3>Instructions:</h3>
         <ol>
-            <li>Form the ground chicken into 4 equal patties.</li>
-            <li>Season both sides of the patties with salt and pepper.</li>
-            <li>Grill or pan-fry the patties over medium-high heat for 5-6 minutes on each side, or until fully cooked and the internal temperature reaches 165°F (74°C).</li>
-            <li>If using cheese, place a slice on each patty during the last minute of cooking and cover to melt.</li>
-            <li>Toast the hamburger buns if desired.</li>
-            <li>Assemble the burgers with your choice of toppings and condiments.</li>
+            <li>In a bowl, combine the ground chicken, breadcrumbs, egg, salt, and pepper, and form into a patty.</li>
+            <li>Cook the patty in a skillet or on a grill over medium heat, about 4-5 minutes per side, until fully cooked.</li>
+            <li>Toast the hamburger bun on the grill or in the skillet.</li>
+            <li>Assemble the burger with the patty, lettuce, tomato, and your choice of condiments.</li>
+            <li>Serve hot.</li>
         </ol>`;
-    } else if (recipe === 'ny_cheesecake') {
+    } else if (recipe === 'omelette') {
+        recipeOutput.innerHTML = `
+        <h2>Omelette Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>2-3 eggs</li>
+            <li>Salt and pepper to taste</li>
+            <li>Butter or oil for cooking</li>
+            <li>Filling options: cheese, mushrooms, bell peppers, onions, ham, spinach</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Beat the eggs with salt and pepper in a bowl.</li>
+            <li>Heat butter or oil in a non-stick skillet over medium heat.</li>
+            <li>Pour the eggs into the skillet and cook undisturbed until the edges start to set.</li>
+            <li>Add your choice of fillings to one half of the omelette.</li>
+            <li>Fold the other half of the omelette over the filling and cook for another 1-2 minutes.</li>
+            <li>Slide the omelette onto a plate and serve hot.</li>
+        </ol>`;
+    } else if (recipe === 'grilled_cheese') {
+        recipeOutput.innerHTML = `
+        <h2>Grilled Cheese Recipe</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>2 slices of bread</li>
+            <li>2 slices of cheese</li>
+            <li>Butter or margarine</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Spread butter on one side of each slice of bread.</li>
+            <li>Place a slice of cheese between the unbuttered sides of the bread.</li>
+            <li>Heat a skillet over medium heat and place the sandwich in the skillet, buttered side down.</li>
+            <li>Cook until the bread is golden brown and the cheese is melted, about 2-3 minutes per side.</li>
+            <li>Serve hot.</li>
+        </ol>`;
+    } else if (recipe === 'cheesecake') {
         recipeOutput.innerHTML = `
         <h2>New York-Style Cheesecake Recipe</h2>
         <h3>Ingredients:</h3>
+        <h4>Crust:</h4>
         <ul>
             <li>1 1/2 cups graham cracker crumbs</li>
-            <li>1/4 cup granulated sugar</li>
+            <li>1/4 cup sugar</li>
             <li>1/2 cup unsalted butter, melted</li>
+        </ul>
+        <h4>Filling:</h4>
+        <ul>
             <li>4 (8-ounce) packages cream cheese, softened</li>
-            <li>1 cup granulated sugar</li>
+            <li>1 cup sugar</li>
             <li>1 teaspoon vanilla extract</li>
             <li>4 large eggs</li>
-            <li>1 cup sour cream</li>
-            <li>1 cup heavy cream</li>
+            <li>2/3 cup sour cream</li>
+            <li>2/3 cup heavy cream</li>
         </ul>
         <h3>Instructions:</h3>
+        <h4>Crust:</h4>
         <ol>
-            <li>Preheat your oven to 325°F (163°C). Grease a 9-inch springform pan.</li>
-            <li>In a medium bowl, mix the graham cracker crumbs, sugar, and melted butter until combined. Press the mixture into the bottom of the prepared pan to form the crust.</li>
-            <li>In a large bowl, beat the cream cheese until smooth. Add the sugar and vanilla extract, and continue to beat until well combined.</li>
-            <li>Add the eggs, one at a time, beating well after each addition. Add the sour cream and mix until smooth.</li>
-            <li>Pour the cream cheese mixture over the crust in the springform pan.</li>
-            <li>Bake for 60-70 minutes, or until the edges are set and the center is slightly jiggly. Turn off the oven and leave the cheesecake in the oven for 1 hour.</li>
-            <li>Remove the cheesecake from the oven and cool to room temperature. Refrigerate for at least 4 hours or overnight.</li>
-            <li>Whip the heavy cream until soft peaks form and spread it over the top of the chilled cheesecake before serving.</li>
+            <li>Preheat oven to 350°F (175°C).</li>
+            <li>Mix graham cracker crumbs, sugar, and melted butter until well combined.</li>
+            <li>Press the mixture into the bottom of a 9-inch springform pan.</li>
+            <li>Bake for 10 minutes, then let cool completely.</li>
+        </ol>
+        <h4>Filling:</h4>
+        <ol>
+            <li>Reduce oven temperature to 325°F (160°C).</li>
+            <li>In a large mixing bowl, beat the cream cheese until smooth.</li>
+            <li>Add sugar and vanilla extract, and beat until well combined.</li>
+            <li>Add eggs one at a time, beating well after each addition.</li>
+            <li>Stir in sour cream and heavy cream until the mixture is smooth and creamy.</li>
+            <li>Pour the filling over the cooled crust.</li>
+            <li>Bake for 60-70 minutes, or until the center is set and the top is lightly browned.</li>
+            <li>Turn off the oven and let the cheesecake cool in the oven with the door slightly open for 1 hour.</li>
+            <li>Remove from the oven and refrigerate for at least 4 hours or overnight before serving.</li>
         </ol>`;
     }
 }
+
 </script>
 
 </body>
