@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .recipe-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .recipe-buttons button {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #333;
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .recipe-display {
+            max-width: 600px;
+            padding: 20px;
+            font-size: 16px;
+            text-align: left;
+        }
+        .recipe-display h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="recipe-buttons">
+            <div onclick="setRecipe('nyCheesecake')" class="circle"></div> NY-Style Cheesecake
+            <div onclick="setRecipe('blueberryCheesecake')" class="circle"></div> Blueberry Cheesecake
+            <button onclick="showRecipe()">Show Recipe</button>
+        </div>
+        <div class="recipe-display" id="recipeDisplay">
+            <h2>Recipe Display</h2>
+            <p>Select a recipe and click "Show Recipe" to see the details.</p>
+        </div>
+    </div>
+
+    <script>
+        let selectedRecipe = '';
+
+        function setRecipe(recipe) {
+            selectedRecipe = recipe;
+            document.querySelectorAll('.circle').forEach(circle => circle.style.backgroundColor = '#333'); // Reset all circles
+            event.target.style.backgroundColor = '#666'; // Highlight selected circle
+        }
+
+        function showRecipe() {
+            const recipeText = {
+                nyCheesecake: `
+                    <h2>NY-Style Cheesecake</h2>
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>1 1/2 cups graham cracker crumbs</li>
+                        <li>1/4 cup sugar</li>
+                        <li>1/2 cup melted butter</li>
+                        <li>4 (8-ounce) packages cream cheese, softened</li>
+                        <li>1 cup sugar</li>
+                        <li>1 teaspoon vanilla extract</li>
+                        <li>4 large eggs</li>
+                        <li>1 cup sour cream</li>
+                        <li>1/2 cup heavy cream</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <ol>
+                        <li>Preheat oven to 325°F (163°C).</li>
+                        <li>Combine graham cracker crumbs, sugar, and melted butter; press into the bottom of a springform pan.</li>
+                        <li>Beat cream cheese and sugar until smooth. Add vanilla, then eggs one at a time. Mix in sour cream and heavy cream.</li>
+                        <li>Pour over the crust. Bake for 1 hour. Turn off the oven and let cheesecake cool in the oven for 1 hour.</li>
+                        <li>Chill for at least 4 hours before serving.</li>
+                    </ol>
+                `,
+                blueberryCheesecake: `
+                    <h2>Blueberry Cheesecake</h2>
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        <li>1 1/2 cups graham cracker crumbs</li>
+                        <li>1/4 cup sugar</li>
+                        <li>1/2 cup melted butter</li>
+                        <li>4 (8-ounce) packages cream cheese, softened</li>
+                        <li>1 cup sugar</li>
+                        <li>1 teaspoon vanilla extract</li>
+                        <li>4 large eggs</li>
+                        <li>1 cup sour cream</li>
+                        <li>1/2 cup heavy cream</li>
+                        <li>1 cup blueberry sauce</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <ol>
+                        <li>Preheat oven to 325°F (163°C).</li>
+                        <li>Combine graham cracker crumbs, sugar, and melted butter; press into the bottom of a springform pan.</li>
+                        <li>Beat cream cheese and sugar until smooth. Add vanilla, then eggs one at a time. Mix in sour cream and heavy cream.</li>
+                        <li>Pour over the crust. Bake for 1 hour. Turn off the oven and let cheesecake cool in the oven for 1 hour.</li>
+                        <li>Top with blueberry sauce and chill for at least 4 hours before serving.</li>
+                    </ol>
+                `
+            };
+            document.getElementById('recipeDisplay').innerHTML = recipeText[selectedRecipe] || '<h2>Recipe Display</h2><p>Select a recipe and click "Show Recipe" to see the details.</p>';
+        }
+    </script>
+</body>
+</html>
