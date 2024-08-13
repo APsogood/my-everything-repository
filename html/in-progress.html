@@ -21,51 +21,79 @@
             flex-direction: column;
             align-items: flex-start;
         }
-        .recipe-buttons button {
+        .recipe-buttons label {
+            display: flex;
+            align-items: center;
             margin-bottom: 10px;
-            font-size: 16px;
+            font-size: 20px;
+            cursor: pointer;
         }
-        .circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #333;
-            display: inline-block;
+        .recipe-buttons input[type="radio"] {
             margin-right: 10px;
             cursor: pointer;
         }
         .recipe-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             max-width: 600px;
             padding: 20px;
             font-size: 16px;
             text-align: left;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            display: none;
         }
         .recipe-display h2 {
             margin-top: 0;
+        }
+        #showRecipeBtn {
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        #message {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: yellow;
+            padding: 10px;
+            display: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="recipe-buttons">
-            <div onclick="setRecipe('nyCheesecake')" class="circle"></div> NY-Style Cheesecake
-            <div onclick="setRecipe('blueberryCheesecake')" class="circle"></div> Blueberry Cheesecake
-            <button onclick="showRecipe()">Show Recipe</button>
+            <label>
+                <input type="radio" name="recipe" value="nyCheesecake">
+                NY-Style Cheesecake
+            </label>
+            <label>
+                <input type="radio" name="recipe" value="blueberryCheesecake">
+                Blueberry Cheesecake
+            </label>
+            <button id="showRecipeBtn" onclick="showRecipe()">Show Recipe</button>
         </div>
-        <div class="recipe-display" id="recipeDisplay">
+        <div id="recipeDisplay" class="recipe-display">
             <h2>Recipe Display</h2>
             <p>Select a recipe and click "Show Recipe" to see the details.</p>
         </div>
     </div>
+    <div id="message">Select a recipe and then press the Show Recipe button</div>
 
     <script>
         let selectedRecipe = '';
+        let isRecipeShown = false;
 
-        function setRecipe(recipe) {
-            selectedRecipe = recipe;
-            document.querySelectorAll('.circle').forEach(circle => circle.style.backgroundColor = '#333'); // Reset all circles
-            event.target.style.backgroundColor = '#666'; // Highlight selected circle
-        }
+        document.querySelectorAll('input[name="recipe"]').forEach(input => {
+            input.addEventListener('change', function() {
+                selectedRecipe = this.value;
+            });
+        });
 
         function showRecipe() {
             const recipeText = {
@@ -117,7 +145,31 @@
                     </ol>
                 `
             };
-            document.getElementById('recipeDisplay').innerHTML = recipeText[selectedRecipe] || '<h2>Recipe Display</h2><p>Select a recipe and click "Show Recipe" to see the details.</p>';
+
+            const recipeDisplay = document.getElementById('recipeDisplay');
+            const showRecipeBtn = document.getElementById('showRecipeBtn');
+
+            if (selectedRecipe) {
+                if (isRecipeShown) {
+                    recipeDisplay.style.display = 'none';
+                    showRecipeBtn.style.backgroundColor = '';
+                } else {
+                    recipeDisplay.innerHTML = recipeText[selectedRecipe];
+                    recipeDisplay.style.display = 'block';
+                    showRecipeBtn.style.backgroundColor = 'blue';
+                }
+                isRecipeShown = !isRecipeShown;
+            } else {
+                showMessage();
+            }
+        }
+
+        function showMessage() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
         }
     </script>
 </body>
