@@ -22,10 +22,23 @@ def paper_snowflake():
     ]
     return steps
 
+def paper_lantern():
+    steps = [
+        "1. Start with a rectangular piece of paper.",
+        "2. Fold the paper in half lengthwise.",
+        "3. Cut slits along the folded edge, about 1 inch apart. Leave about 1 inch of uncut paper at the edges.",
+        "4. Unfold the paper.",
+        "5. Bring the long edges of the paper together to form a cylinder shape, with the slits running vertically.",
+        "6. Secure the edges with tape or glue.",
+        "7. Add a handle by attaching a strip of paper to the top. Your lantern is complete!"
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
     print("2. Paper Snowflake")
+    print("3. Paper Lantern")
     
     choice = input("Enter the number of your choice: ")
     
@@ -33,8 +46,10 @@ def main():
         instructions = paper_airplane()
     elif choice == "2":
         instructions = paper_snowflake()
+    elif choice == "3":
+        instructions = paper_lantern()
     else:
-        print("Invalid choice. Please select 1 or 2.")
+        print("Invalid choice. Please select 1, 2, or 3.")
         return
     
     print("\nHere are the instructions:")
