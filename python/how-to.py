@@ -34,11 +34,24 @@ def paper_lantern():
     ]
     return steps
 
+def paper_flowers():
+    steps = [
+        "1. Start with a square piece of paper.",
+        "2. Fold the paper in half diagonally to form a triangle.",
+        "3. Fold the triangle in half again to form a smaller triangle.",
+        "4. Fold the triangle in thirds, overlapping the sides slightly.",
+        "5. Cut the top of the triangle into a rounded shape.",
+        "6. Unfold the paper to reveal a flower shape.",
+        "7. You can layer multiple flowers for a fuller effect or add a stem using a strip of green paper."
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
     print("2. Paper Snowflake")
     print("3. Paper Lantern")
+    print("4. Paper Flowers")
     
     choice = input("Enter the number of your choice: ")
     
@@ -48,8 +61,10 @@ def main():
         instructions = paper_snowflake()
     elif choice == "3":
         instructions = paper_lantern()
+    elif choice == "4":
+        instructions = paper_flowers()
     else:
-        print("Invalid choice. Please select 1, 2, or 3.")
+        print("Invalid choice. Please select 1, 2, 3, or 4.")
         return
     
     print("\nHere are the instructions:")
