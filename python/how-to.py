@@ -46,12 +46,27 @@ def paper_flowers():
     ]
     return steps
 
+def origami_bird():
+    steps = [
+        "1. Start with a square piece of paper, color side up.",
+        "2. Fold the paper in half diagonally, then unfold.",
+        "3. Fold the paper in half diagonally in the other direction, then unfold again. This will leave you with an X-shaped crease.",
+        "4. Flip the paper over and fold it in half horizontally and vertically, then unfold. You now have creases that make a star shape.",
+        "5. Collapse the paper along the creases into a smaller square with open flaps at the bottom.",
+        "6. Fold the top layers of both sides to the center crease, creating a kite shape. Repeat on the other side.",
+        "7. Fold the top point down on both sides, then unfold these folds.",
+        "8. Reverse fold the sides to form the bird's head and tail.",
+        "9. Fold the wings down, and your origami bird is complete!"
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
     print("2. Paper Snowflake")
     print("3. Paper Lantern")
     print("4. Paper Flowers")
+    print("5. Origami Bird")
     
     choice = input("Enter the number of your choice: ")
     
@@ -63,8 +78,10 @@ def main():
         instructions = paper_lantern()
     elif choice == "4":
         instructions = paper_flowers()
+    elif choice == "5":
+        instructions = origami_bird()
     else:
-        print("Invalid choice. Please select 1, 2, 3, or 4.")
+        print("Invalid choice. Please select 1, 2, 3, 4, or 5.")
         return
     
     print("\nHere are the instructions:")
