@@ -69,6 +69,20 @@ def origami_fish():
     ]
     return steps
 
+def origami_butterfly():
+    steps = [
+        "1. Start with a square piece of paper, color side down.",
+        "2. Fold the paper in half diagonally to form a triangle, then unfold.",
+        "3. Fold the paper diagonally in the other direction, forming a smaller triangle, and unfold again.",
+        "4. Flip the paper over and fold it in half vertically and horizontally, unfolding after each fold.",
+        "5. Collapse the paper along the creases into a triangle.",
+        "6. Fold the top corners of the triangle down to the bottom point.",
+        "7. Fold the bottom point of the front layer up to slightly above the top edge of the model.",
+        "8. Flip the paper over and fold the small triangle at the bottom up to lock the model.",
+        "9. Spread the wings to complete your origami butterfly!"
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
@@ -77,6 +91,7 @@ def main():
     print("4. Paper Flowers")
     print("5. Origami Bird")
     print("6. Origami Fish")
+    print("7. Origami Butterfly")
     
     choice = input("Enter the number of your choice: ")
     
@@ -92,8 +107,10 @@ def main():
         instructions = origami_bird()
     elif choice == "6":
         instructions = origami_fish()
+    elif choice == "7":
+        instructions = origami_butterfly()
     else:
-        print("Invalid choice. Please select a number from 1 to 6.")
+        print("Invalid choice. Please select a number from 1 to 7.")
         return
     
     print("\nHere are the instructions:")
