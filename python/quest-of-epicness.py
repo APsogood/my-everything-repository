@@ -7,9 +7,9 @@ def adventure_game():
     if choice == "left":
         decide = input("You walked left. You think something is following you... Will you (run) or (find out what it is)?").lower()
     if decide == "run":
-        pass
+        print("You ran. Now the thing which was following you is not following you anymore ")
     elif decide == "find out what it is":
-        pass
+        print("An old man gave you a treasure chest!")
     elif choice == "right":
         print("You walked right. Rest to be continued.")
     else:
