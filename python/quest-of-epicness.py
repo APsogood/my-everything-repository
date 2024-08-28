@@ -9,7 +9,7 @@ def adventure_game():
     if decide == "run":
         print("You ran. Now the thing which was following you is not following you anymore ")
     elif decide == "find out what it is":
-        print("An old man gave you a treasure chest!")
+        print("An old man gave you a treasure chest! Rest to be continued...")
     elif choice == "right":
         print("You walked right. Rest to be continued.")
     else:
