@@ -83,6 +83,19 @@ def origami_butterfly():
     ]
     return steps
 
+def origami_rabbit():
+    steps = [
+        "1. Start with a square piece of paper, color side up.",
+        "2. Fold the paper in half diagonally to form a triangle.",
+        "3. Fold the left and right corners to the top point, forming a diamond shape.",
+        "4. Fold the top layer of the bottom point up to meet the top point.",
+        "5. Fold the sides in towards the center to form the body.",
+        "6. Fold the top point down to create the ears.",
+        "7. Flip the paper over and fold the bottom point up to create the tail.",
+        "8. Add details like eyes and a nose with a pen or marker, and your origami rabbit is complete!"
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
@@ -92,6 +105,7 @@ def main():
     print("5. Origami Bird")
     print("6. Origami Fish")
     print("7. Origami Butterfly")
+    print("8. Origami Rabbit")
     
     choice = input("Enter the number of your choice: ")
     
@@ -109,8 +123,10 @@ def main():
         instructions = origami_fish()
     elif choice == "7":
         instructions = origami_butterfly()
+    elif choice == "8":
+        instructions = origami_rabbit()
     else:
-        print("Invalid choice. Please select a number from 1 to 7.")
+        print("Invalid choice. Please select a number from 1 to 8.")
         return
     
     print("\nHere are the instructions:")
