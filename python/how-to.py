@@ -96,6 +96,17 @@ def origami_rabbit():
     ]
     return steps
 
+def origami_dog():
+    steps = [
+        "1. Start with a square piece of paper, color side up.",
+        "2. Fold the paper in half diagonally to form a triangle.",
+        "3. Fold the left and right corners of the triangle down to create the ears.",
+        "4. Fold the top point of the triangle down slightly to form the dog's nose.",
+        "5. Draw eyes, a nose, and a mouth on the face of the dog.",
+        "6. Your origami dog is complete!"
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
@@ -106,6 +117,7 @@ def main():
     print("6. Origami Fish")
     print("7. Origami Butterfly")
     print("8. Origami Rabbit")
+    print("9. Origami Dog")
     
     choice = input("Enter the number of your choice: ")
     
@@ -125,8 +137,10 @@ def main():
         instructions = origami_butterfly()
     elif choice == "8":
         instructions = origami_rabbit()
+    elif choice == "9":
+        instructions = origami_dog()
     else:
-        print("Invalid choice. Please select a number from 1 to 8.")
+        print("Invalid choice. Please select a number from 1 to 9.")
         return
     
     print("\nHere are the instructions:")
@@ -135,3 +149,4 @@ def main():
     
 if __name__ == "__main__":
     main()
+
