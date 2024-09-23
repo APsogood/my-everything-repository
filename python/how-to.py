@@ -107,6 +107,18 @@ def origami_dog():
     ]
     return steps
 
+def origami_human():
+    steps = [
+        "1. Start with a square piece of paper, color side up.",
+        "2. Fold the paper in half vertically, then unfold.",
+        "3. Fold the left and right edges to meet the center crease, forming a narrow rectangle.",
+        "4. Fold the top down about a quarter of the way to create the head.",
+        "5. Fold the bottom corners outward to form the legs.",
+        "6. Fold the top corners slightly down to round the shoulders.",
+        "7. Add details like eyes, a mouth, and clothing with a pen or marker, and your origami human is complete!"
+    ]
+    return steps
+
 def main():
     print("Welcome! What would you like to make?")
     print("1. Paper Airplane")
@@ -118,6 +130,7 @@ def main():
     print("7. Origami Butterfly")
     print("8. Origami Rabbit")
     print("9. Origami Dog")
+    print("10. Origami Human")  # New option added
     
     choice = input("Enter the number of your choice: ")
     
@@ -139,8 +152,10 @@ def main():
         instructions = origami_rabbit()
     elif choice == "9":
         instructions = origami_dog()
+    elif choice == "10":
+        instructions = origami_human()  # Call the new function
     else:
-        print("Invalid choice. Please select a number from 1 to 9.")
+        print("Invalid choice. Please select a number from 1 to 10.")
         return
     
     print("\nHere are the instructions:")
@@ -149,4 +164,3 @@ def main():
     
 if __name__ == "__main__":
     main()
-
