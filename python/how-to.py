@@ -153,7 +153,7 @@ def main():
     elif choice == "9":
         instructions = origami_dog()
     elif choice == "10":
-        instructions = origami_human()  # Call the new function
+        instructions = origami_human()
     else:
         print("Invalid choice. Please select a number from 1 to 10.")
         return
