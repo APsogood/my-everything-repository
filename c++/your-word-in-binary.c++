@@ -14,7 +14,7 @@ int main()
         int b = int(a[i]);
         vector<int> c;
 
-        // Converting character to binary and storing in vector c
+        // Converting character to binary and storing in vector
         while (b > 0)
         {
             c.push_back(b % 2);
