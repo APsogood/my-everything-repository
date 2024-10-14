@@ -8,8 +8,7 @@ def show_rules():
     print("Good luck!!!")
 
 def start_game():
-    words_tuple = ("Giraffe", "Laptop", "Garage", "Marathon", "Medium", "Chicken", "School", "Random", "Antarctica", "Scramble", "Telephone", "Airplane", "Critical", "Microwave", "Chair", "Avalanche", "Chocolate", "Monkey", "Examine", "Tentacle", "Frequency")
-    
+    words_tuple = ("Giraffe", "Laptop", "Garage", "Marathon", "Medium", "Chicken", "School", "Random", "Antarctica", "Scramble", "Telephone", "Airplane", "Critical", "Microwave", "Chair", "Avalanche", "Chocolate", "Monkey", "Examine", "Tentacle", "Frequency", "Driving", "Diving") 
     used_words = set()
     points = 0
     rounds = 4
