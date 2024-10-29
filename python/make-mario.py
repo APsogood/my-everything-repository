@@ -15,5 +15,5 @@ elif number == "4":
             ***  ***
            ****  ****""")
 else:
-    print("Please choose a number from 1 to 4 we are still making it 1 to 8.")
+    print("Please choose a number from 1 to 4 we are still making it 1 to 8")
        
