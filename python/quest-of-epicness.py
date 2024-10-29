@@ -16,6 +16,7 @@ def adventure_game():
             print("Your body feels different... To be continued...")
         elif eat == "throw away":
             print("The fruit got thrown away. An old man said those can go around for 350,000,000 dollars and if consumed it is said to give you special super-human powers.")
+
     else:
         print("Invalid choice. You wander around and get eaten by a giant bird. You lose!")
 
