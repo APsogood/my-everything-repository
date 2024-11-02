@@ -11,7 +11,7 @@ p10 = "    **********  **********"
 p11 = "   ***********  ***********"
 p12 = "  ************  ************"
 
-number = input("Welcome to make mario 2! We've extended the number by 9-12. Now, choose a number by 9-12. ")
+number = input("Welcome to make mario 2! We've extended the number by 9-12. Now, choose a number by 9-12. If you hadn't already, check out make mario. ")
 
 if number == "9":
     print(p1)
