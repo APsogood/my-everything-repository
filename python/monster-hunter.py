@@ -1,0 +1,1 @@
+welcome = input("Welcome to monster hunter!")
