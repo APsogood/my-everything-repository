@@ -7,7 +7,7 @@ word_tuple_hard = ("Discombobulated", "Confusion", "Arachnophobia", "Megalophobi
 word_tuple_extreme = ("Hippopotomonstrosesquippedaliophobia", "Lymphangioleiomyomatosis", "Supercalifragilisticexpialidocious")
 word_tuple_unbeatable = ("Pneumonoultramicroscopicsilicovolcanoconiosis",)
 
-welcome = input("Welcome to Monster Hunter! In this game, you need to type in a word within a certain amount of time. There are 3 difficulties: Easy, Medium, and Hard. Type in (tutorial) to play the tutorial: ")
+welcome = input("Welcome to Monster Hunter! In this game, you need to type in a word within a certain amount of time. There are 3 difficulties: (Easy), (Medium), and (Hard). Type in (tutorial) to play the tutorial: ")
 
 if welcome.lower() == "tutorial":
     print("This is the tutorial, so there will be no timer. Go!")
@@ -25,6 +25,12 @@ if welcome.lower() == "tutorial":
         print("Amazing! +1 point.")
         points += 1
     else:
-        print("Incorrect, better luck next time!")
+        print("Incorrect, keep on going!")
+    word3 = input("Type in (fun). You have N/A seconds before the monster gets you. Go! ").lower()
+    if word3 == "fun":
+        print("Nice! +1 point.")
+        points += 1
+else:
+    print("Incorrect, better luck next time!")
     
-    print("Your total points are " + str(points) + "/2. You had completed the tutorial")
+print("Your total points are " + str(points) + "/3. You had completed the tutorial!")
