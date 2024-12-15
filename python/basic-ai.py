@@ -60,6 +60,15 @@ def tell_joke():
     ]
     return random.choice(jokes)
 
+def facts():
+    """Tell facts about Canada."""
+    fact_list = [
+        "Did you know Canada's national dish is poutine? Poutine is fries, gravy, and cheese.",
+        "Did you know Canada and the US share the longest border in the world?",
+        "Did you know New York City has a higher GDP than all of Canada?",
+    ]
+    return random.choice(fact_list)
+
 def main():
     """Main function for the AI assistant."""
     print("Hello! I am your basic AI assistant.")
@@ -71,9 +80,10 @@ def main():
         print("2. Get the current date and time")
         print("3. Open a website")
         print("4. Tell me a joke")
-        print("5. Exit")
+        print("5. Facts about Canada")
+        print("6. Exit")
         
-        choice = input("Enter your choice (1-5): ").strip()
+        choice = input("Enter your choice (1-6): ").strip()
         
         if choice == '1':
             print(perform_calculation())
@@ -84,6 +94,8 @@ def main():
         elif choice == '4':
             print(tell_joke())
         elif choice == '5':
+            print(facts())  # Call the function here
+        elif choice == '6':
             print("Goodbye! Have a great day!")
             break
         else:
