@@ -1,6 +1,6 @@
 import datetime
 import webbrowser
-import random
+import random # Libraries
 
 def greet_user():
     """Greet the user based on the time of day."""
