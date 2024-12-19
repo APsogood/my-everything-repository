@@ -1,6 +1,6 @@
 import datetime
 import webbrowser
-import random # Libraries
+import random  # Libraries
 
 def greet_user():
     """Greet the user based on the time of day."""
@@ -14,21 +14,27 @@ def greet_user():
 
 def perform_calculation():
     """Perform basic arithmetic operations."""
+    print("Available operations: +, -, *, /")
     try:
-        operation = input("Enter the operation (+, -, *, /): ").strip()
+        operation = input("Enter the operation: ").strip()
+        if operation not in ['+', '-', '*', '/']:
+            return "Invalid operation. Please choose from +, -, *, /."
+        
         num1 = float(input("Enter the first number: ").strip())
         num2 = float(input("Enter the second number: ").strip())
         
         if operation == '+':
-            return f"The result is: {num1 + num2}"
+            result = num1 + num2
         elif operation == '-':
-            return f"The result is: {num1 - num2}"
+            result = num1 - num2
         elif operation == '*':
-            return f"The result is: {num1 * num2}"
+            result = num1 * num2
         elif operation == '/':
-            return f"The result is: {num1 / num2}" if num2 != 0 else "Error: Division by zero."
-        else:
-            return "Invalid operation. Please try again."
+            if num2 == 0:
+                return "Error: Division by zero is not allowed."
+            result = num1 / num2
+        
+        return f"The result of {num1} {operation} {num2} is: {result}"
     except ValueError:
         return "Error: Please enter valid numbers."
 
@@ -39,14 +45,14 @@ def get_date_time():
 
 def open_website():
     """Open a website in the default browser."""
-    url = input("Enter the URL of the website (e.g., https://www.google.com): ").strip()
-    if not url.startswith("http"):
+    url = input("Enter the URL of the website (e.g., google.com): ").strip()
+    if not url.startswith(("http://", "https://")):
         url = "https://" + url
     try:
         webbrowser.open(url)
-        return f"Opening {url}..."
+        return f"Opening {url} in your browser..."
     except Exception as e:
-        return f"Error: Could not open the website. {e}"
+        return f"Error: Could not open the website. Reason: {e}"
 
 def tell_joke():
     """Tell a random joke."""
@@ -57,14 +63,14 @@ def tell_joke():
     ]
     return random.choice(jokes)
 
-def facts():
-    """Tell facts about Canada."""
-    fact_list = [
+def tell_fact():
+    """Tell a random fact about Canada."""
+    facts = [
         "Canada's national dish is poutine.",
         "Canada and the US share the world's longest border.",
         "New York City's GDP surpasses all of Canada's GDP.",
     ]
-    return random.choice(fact_list)
+    return random.choice(facts)
 
 def play_rock_paper_scissors():
     """Play Rock-Paper-Scissors with the user."""
@@ -96,8 +102,8 @@ What would you like me to do?
 2. Get the current date and time
 3. Open a website
 4. Tell me a joke
-5. Facts about Canada
-6. Play rock-paper-scissors
+5. Share a fact about Canada
+6. Play Rock-Paper-Scissors
 7. Exit
 """
     
@@ -114,14 +120,14 @@ What would you like me to do?
         elif choice == '4':
             print(tell_joke())
         elif choice == '5':
-            print(facts())
+            print(tell_fact())
         elif choice == '6':
             print(play_rock_paper_scissors())
         elif choice == '7':
             print("Goodbye! Have a great day!")
             break
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please select a number between 1 and 7.")
 
 if __name__ == "__main__":
     main()
