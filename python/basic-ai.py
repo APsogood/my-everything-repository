@@ -64,13 +64,21 @@ def tell_joke():
     return random.choice(jokes)
 
 def tell_fact():
-    """Tell a random fact about Canada."""
-    facts = [
+    """Tell a random fact about Canada or the United States."""
+    canada_facts = [
         "Canada's national dish is poutine.",
         "Canada and the US share the world's longest border.",
         "New York City's GDP surpasses all of Canada's GDP.",
     ]
-    return random.choice(facts)
+    
+    us_facts = [
+        "The United States has 50 states.",
+        "The US Constitution is the oldest written constitution still in use.",
+        "Yellowstone was the first national park in the world, established in 1872.",
+    ]
+    
+    all_facts = canada_facts + us_facts
+    return random.choice(all_facts)
 
 def play_rock_paper_scissors():
     """Play Rock-Paper-Scissors with the user."""
@@ -102,7 +110,7 @@ What would you like me to do?
 2. Get the current date and time
 3. Open a website
 4. Tell me a joke
-5. Share a fact about Canada
+5. Share a fact
 6. Play Rock-Paper-Scissors
 7. Exit
 """
