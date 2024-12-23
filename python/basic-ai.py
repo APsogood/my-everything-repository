@@ -2,7 +2,6 @@ import datetime
 import webbrowser
 import random  # Libraries
 
-
 def greet_user():
     """Greet the user based on the time of day."""
     current_hour = datetime.datetime.now().hour
@@ -12,7 +11,6 @@ def greet_user():
         return "Good afternoon!"
     else:
         return "Good evening!"
-
 
 def perform_calculation():
     """Perform basic arithmetic operations."""
@@ -25,39 +23,38 @@ def perform_calculation():
         num1 = float(input("Enter the first number: ").strip())
         num2 = float(input("Enter the second number: ").strip())
 
+        if operation == '/' and num2 == 0:
+            return "Error: Division by zero is not allowed."
+
         operations = {
             '+': num1 + num2,
             '-': num1 - num2,
             '*': num1 * num2,
-            '/': num1 / num2 if num2 != 0 else "Error: Division by zero is not allowed."
+            '/': num1 / num2
         }
 
         result = operations[operation]
-        if isinstance(result, str):  # For division by zero
-            return result
-
         return f"The result of {num1} {operation} {num2} is: {result}"
     except ValueError:
         return "Error: Please enter valid numbers."
-
 
 def get_date_time():
     """Provide the current date and time."""
     now = datetime.datetime.now()
     return f"Current date and time: {now.strftime('%Y-%m-%d %H:%M:%S')}"
 
-
 def open_website():
     """Open a website in the default browser."""
     url = input("Enter the URL of the website (default: google.com): ").strip() or "google.com"
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
+    if "." not in url:  # Basic validation for a domain
+        return "Invalid URL. Please enter a valid website."
     try:
         webbrowser.open(url)
         return f"Opening {url} in your browser..."
     except Exception as e:
         return f"Error: Could not open the website. Reason: {e}"
-
 
 def tell_joke():
     """Tell a random joke."""
@@ -68,9 +65,8 @@ def tell_joke():
     ]
     return random.choice(jokes)
 
-
 def tell_fact():
-    """Tell a random fact about Canada or the United States."""
+    """Tell a random fact about Canada, the United States, or China."""
     canada_facts = [
         "Canada's national dish is poutine.",
         "Canada and the US share the world's longest border.",
@@ -83,9 +79,14 @@ def tell_fact():
         "Yellowstone was the first national park in the world, established in 1872.",
     ]
 
-    all_facts = canada_facts + us_facts
-    return random.choice(all_facts)
+    china_facts = [
+        "China's national animal is the giant panda.",
+        "The Great Wall of China is over 13,000 miles long.",
+        "China has the world's second-largest economy by nominal GDP.",
+    ]
 
+    all_facts = canada_facts + us_facts + china_facts
+    return random.choice(all_facts)
 
 def play_rock_paper_scissors():
     """Play Rock-Paper-Scissors with the user."""
@@ -105,7 +106,6 @@ def play_rock_paper_scissors():
         return "You win!"
     else:
         return "You lose!"
-
 
 def main():
     """Main function for the AI assistant."""
@@ -133,10 +133,12 @@ def main():
             print("Goodbye! Have a great day!")
             break
         elif choice in menu:
-            print(menu[choice]())
+            try:
+                print(menu[choice]())
+            except Exception as e:
+                print(f"An error occurred: {e}")
         else:
             print("Invalid choice. Please select a valid option.")
-
 
 if __name__ == "__main__":
     main()
