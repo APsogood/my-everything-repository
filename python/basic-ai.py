@@ -1,4 +1,4 @@
-import datetime
+import datetime # For date and time
 import webbrowser
 import random  # Libraries
 
