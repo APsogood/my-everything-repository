@@ -1,6 +1,6 @@
-import datetime # For date and time
-import webbrowser
-import random  # Libraries
+import datetime  # For date and time
+import webbrowser  # For opening websites
+import random  # For random selections
 
 def greet_user():
     """Greet the user based on the time of day."""
