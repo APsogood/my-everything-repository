@@ -58,6 +58,7 @@ def open_website():
 
 def tell_joke():
     """Tell a random joke."""
+    input("Press any key to hear a joke...")
     jokes = [
         "Why don't scientists trust atoms? Because they make up everything!",
         "Why did the scarecrow win an award? Because he was outstanding in his field!",
@@ -66,27 +67,35 @@ def tell_joke():
     return random.choice(jokes)
 
 def tell_fact():
-    """Tell a random fact about Canada, the United States, or China."""
-    canada_facts = [
-        "Canada's national dish is poutine.",
-        "Canada and the US share the world's longest border.",
-        "New York City's GDP surpasses all of Canada's GDP.",
-    ]
-
-    us_facts = [
-        "The United States has 50 states.",
-        "The US Constitution is the oldest written constitution still in use.",
-        "Yellowstone was the first national park in the world, established in 1872.",
-    ]
-
-    china_facts = [
-        "China's national animal is the giant panda.",
-        "The Great Wall of China is over 13,000 miles long.",
-        "China has the world's second-largest economy by nominal GDP.",
-    ]
-
-    all_facts = canada_facts + us_facts + china_facts
-    return random.choice(all_facts)
+    """Tell a fact about Canada, the United States, or China."""
+    print("\nChoose a country to hear a fact:")
+    print("1. Canada")
+    print("2. United States")
+    print("3. China")
+    
+    choice = input("Enter your choice (1-3): ").strip()
+    if choice == '1':
+        facts = [
+            "Canada's national dish is poutine.",
+            "Canada and the US share the world's longest border.",
+            "New York City's GDP surpasses all of Canada's GDP.",
+        ]
+    elif choice == '2':
+        facts = [
+            "The United States has 50 states.",
+            "The US Constitution is the oldest written constitution still in use.",
+            "Yellowstone was the first national park in the world, established in 1872.",
+        ]
+    elif choice == '3':
+        facts = [
+            "China's national animal is the giant panda.",
+            "The Great Wall of China is over 13,000 miles long.",
+            "China has the world's second-largest economy by nominal GDP.",
+        ]
+    else:
+        return "Invalid choice. Please select a valid option."
+    
+    return random.choice(facts)
 
 def play_rock_paper_scissors():
     """Play Rock-Paper-Scissors with the user."""
