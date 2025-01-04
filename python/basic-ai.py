@@ -67,13 +67,14 @@ def tell_joke():
     return random.choice(jokes)
 
 def tell_fact():
-    """Tell a fact about Canada, the United States, or China."""
+    """Tell a fact about Canada, the United States, China, or India."""
     print("\nChoose a country to hear a fact:")
     print("1. Canada")
     print("2. United States")
     print("3. China")
+    print("4. India")
     
-    choice = input("Enter your choice (1-3): ").strip()
+    choice = input("Enter your choice (1-4): ").strip()
     if choice == '1':
         facts = [
             "Canada's national dish is poutine.",
@@ -91,6 +92,12 @@ def tell_fact():
             "China's national animal is the giant panda.",
             "The Great Wall of China is over 13,000 miles long.",
             "China has the world's second-largest economy by nominal GDP.",
+        ]
+    elif choice == '4':
+        facts = [
+            "India is the largest democracy in the world.",
+            "The Indian Railways is the world's largest employer, with over 1.4 million employees.",
+            "India is home to the world's tallest statue, the Statue of Unity, standing at 182 meters.",
         ]
     else:
         return "Invalid choice. Please select a valid option."
