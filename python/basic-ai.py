@@ -26,14 +26,13 @@ def perform_calculation():
         if operation == '/' and num2 == 0:
             return "Error: Division by zero is not allowed."
 
-        operations = {
+        result = {
             '+': num1 + num2,
             '-': num1 - num2,
             '*': num1 * num2,
             '/': num1 / num2
-        }
+        }[operation]
 
-        result = operations[operation]
         return f"The result of {num1} {operation} {num2} is: {result}"
     except ValueError:
         return "Error: Please enter valid numbers."
@@ -58,7 +57,6 @@ def open_website():
 
 def tell_joke():
     """Tell a random joke."""
-    input("Press any key to hear a joke...")
     jokes = [
         "Why don't scientists trust atoms? Because they make up everything!",
         "Why did the scarecrow win an award? Because he was outstanding in his field!",
@@ -67,42 +65,26 @@ def tell_joke():
     return random.choice(jokes)
 
 def tell_fact():
-    """Tell a fact about Canada, the United States, China, or India."""
-    print("\nChoose a country to hear a fact:")
-    print("1. Canada")
-    print("2. United States")
-    print("3. China")
-    print("4. India")
-    
-    choice = input("Enter your choice (1-4): ").strip()
-    if choice == '1':
-        facts = [
-            "Canada's national dish is poutine.",
-            "Canada and the US share the world's longest border.",
-            "New York City's GDP surpasses all of Canada's GDP.",
-        ]
-    elif choice == '2':
-        facts = [
-            "The United States has 50 states.",
-            "The US Constitution is the oldest written constitution still in use.",
-            "Yellowstone was the first national park in the world, established in 1872.",
-        ]
-    elif choice == '3':
-        facts = [
-            "China's national animal is the giant panda.",
-            "The Great Wall of China is over 13,000 miles long.",
-            "China has the world's second-largest economy by nominal GDP.",
-        ]
-    elif choice == '4':
-        facts = [
-            "India is the largest democracy in the world.",
-            "The Indian Railways is the world's largest employer, with over 1.4 million employees.",
-            "India is home to the world's tallest statue, the Statue of Unity, standing at 182 meters.",
-        ]
+    """Tell a fact about a selected location."""
+    locations = {
+        '1': ["Canada's national dish is poutine.", "Canada shares the longest border with the US."],
+        '2': ["The US has 50 states.", "Yellowstone was the first national park in the world."],
+        '3': ["China's national animal is the giant panda.", "The Great Wall of China is over 13,000 miles long."],
+        '4': ["India is the largest democracy in the world.", "India has the world's tallest statue, the Statue of Unity."],
+        '5': ["Russia spans 11 time zones.", "Lake Baikal in Russia is the deepest freshwater lake."],
+        '6': ["Miami is the 'Cruise Capital of the World.'", "Miami has the largest collection of Art Deco buildings."],
+        '7': ["Nassau is the capital of the Bahamas.", "The Bahamas became independent in 1973."]
+    }
+
+    print("\nChoose a location to hear a fact:")
+    for key, value in locations.items():
+        print(f"{key}. {value[0].split()[0]}")
+
+    choice = input("Enter your choice (1-7): ").strip()
+    if choice in locations:
+        return random.choice(locations[choice])
     else:
         return "Invalid choice. Please select a valid option."
-    
-    return random.choice(facts)
 
 def play_rock_paper_scissors():
     """Play Rock-Paper-Scissors with the user."""
