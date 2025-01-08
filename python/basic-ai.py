@@ -73,14 +73,15 @@ def tell_fact():
         '4': ["India is the largest democracy in the world.", "India has the world's tallest statue, the Statue of Unity."],
         '5': ["Russia spans 11 time zones.", "Lake Baikal in Russia is the deepest freshwater lake."],
         '6': ["Miami is the 'Cruise Capital of the World.'", "Miami has the largest collection of Art Deco buildings."],
-        '7': ["Nassau is the capital of the Bahamas.", "The Bahamas became independent in 1973."]
+        '7': ["Nassau is the capital of the Bahamas.", "The Bahamas became independent in 1973."],
+        '8': ["New York City is known as 'The Big Apple.'", "The Statue of Liberty was a gift from France to the United States in 1886."]
     }
 
     print("\nChoose a location to hear a fact:")
     for key, value in locations.items():
         print(f"{key}. {value[0].split()[0]}")
 
-    choice = input("Enter your choice (1-7): ").strip()
+    choice = input("Enter your choice (1-8): ").strip()
     if choice in locations:
         return random.choice(locations[choice])
     else:
