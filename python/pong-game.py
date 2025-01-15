@@ -49,7 +49,7 @@ def opponent_ai():
 def ball_restart(message):
     global ball_speed_x, ball_speed_y
     # Center the ball and reset speed
-    ball.center = (screen_width / 2, screen_height / 2)
+    ball.center = (int(screen_width / 2), int(screen_height / 2))
     ball_speed_x *= -1
     ball_speed_y *= -1
 
