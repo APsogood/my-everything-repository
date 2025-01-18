@@ -20,5 +20,5 @@ while True:
                 continue
         print("Result:", result)
         break
-    els:
+    else:
         print(f"{operator} is not a valid operator. Please try again.")
