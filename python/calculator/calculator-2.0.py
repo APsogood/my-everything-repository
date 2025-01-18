@@ -63,4 +63,4 @@ for i, row in enumerate(buttons):
         ).grid(row=i, column=j)
 
 # Run the application
-window.mainloop(i8)
+window.mainloop()
