@@ -24,7 +24,7 @@ last_pipe = pygame.time.get_ticks() - pipe_frequency
 
 # Load images
 bg = pygame.image.load("/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird/bg.png")
-ground_img = pygame.image.load("/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird/ground.png")
+ground_img = pygame.imager.load("/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird/ground.png")
 
 
 class Bird(pygame.sprite.Sprite):
