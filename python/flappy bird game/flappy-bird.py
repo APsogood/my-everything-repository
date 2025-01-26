@@ -1,6 +1,11 @@
 import pygame
 from pygame.locals import *
 import random
+import sys
+
+# Print Python and Pygame versions
+print("Python version:", sys.version)
+print("Pygame version:", pygame.__version__)
 
 pygame.init()
 
@@ -32,9 +37,9 @@ pass_pipe = False
 
 
 #load images
-bg = pygame.image.load('/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird game/bg.png')
-ground_img = pygame.image.load('/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird game/ground.png')
-button_img = pygame.image.load('/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird game/restart.png')
+bg = pygame.image.load('img/bg.png')
+ground_img = pygame.image.load('img/ground.png')
+button_img = pygame.image.load('img/restart.png')
 
 
 def draw_text(text, font, text_col, x, y):
@@ -58,7 +63,7 @@ class Bird(pygame.sprite.Sprite):
 		self.index = 0
 		self.counter = 0
 		for num in range(1, 4):
-			img = pygame.image.load(f'/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird game/bird{num}.png')
+			img = pygame.image.load(f'img/bird{num}.png')
 			self.images.append(img)
 		self.image = self.images[self.index]
 		self.rect = self.image.get_rect()
@@ -105,7 +110,7 @@ class Bird(pygame.sprite.Sprite):
 class Pipe(pygame.sprite.Sprite):
 	def __init__(self, x, y, position):
 		pygame.sprite.Sprite.__init__(self)
-		self.image = pygame.image.load('/home/hirram143/My-Git-Code/my-everything-repository/python/flappy bird game/pipe.png')
+		self.image = pygame.image.load('img/pipe.png')
 		self.rect = self.image.get_rect()
 		#position 1 is from the top, -1 is from the bottom
 		if position == 1:
