@@ -93,7 +93,6 @@ while run:
 
     # Draw level
     world.draw(screen)
-
     # Draw groups
     enemy_group.draw(screen)
     turret_group.draw(screen)
