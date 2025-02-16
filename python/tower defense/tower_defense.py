@@ -12,7 +12,7 @@ pg.init()
 clock = pg.time.Clock()
 
 # Create game window
-screen = pg.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
+screen = pg.display.set_mode((c.SCREEN_WIDTH + c.SIDE_PANEL, c.SCREEN_HEIGHT))
 pg.display.set_caption("Tower Defense")
 
 # Load images
@@ -22,6 +22,9 @@ map_image = pg.image.load("img/level.png").convert_alpha()
 cursor_turret = pg.image.load("img/cursor_turret.png").convert_alpha()
 # Enemies
 enemy_image = pg.image.load("img/enemy_1.png").convert_alpha()
+# Buttons
+buy_turret_image = pg.image.load("img/buy_turret.png").convert_alpha()
+cancel_image = pg.image.load("img/cancel.png").convert_alpha()
 
 # Load json data for level
 with open("level.json") as file:
