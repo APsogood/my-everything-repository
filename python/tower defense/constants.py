@@ -6,7 +6,10 @@ SCREEN_WIDTH = TILE_SIZE * COLS
 SCREEN_HEIGHT = TILE_SIZE * ROWS
 FPS = 60
 
-#turret constants
+# Enemy constants
+SPAWN_COOLDOWN = 400
+
+# Turret constants
 TURRET_LEVELS = 4
 ANIMATION_STEPS = 8
-ANIMATION_DELAY = 15
+ANIMATION_DELAY = 15 # Milliseconds
