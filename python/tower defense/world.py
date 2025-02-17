@@ -18,7 +18,7 @@ class World():
                     self.process_waypoints(waypoint_data)
 
     def process_waypoints(self, data):
-        # Itterate through to extract individual sets of x and y coordinates
+        # Iterate through to extract individual sets of x and y coordinates
         for point in data:
             temp_x = point.get("x")
             temp_y = point.get("y")
