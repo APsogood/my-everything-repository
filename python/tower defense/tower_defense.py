@@ -50,6 +50,14 @@ upgrade_turret_image = pg.image.load('img/upgrade_turret.png').convert_alpha()
 begin_image = pg.image.load('img/begin.png').convert_alpha()
 restart_image = pg.image.load('img/restart.png').convert_alpha()
 fast_forward_image = pg.image.load('img/fast_forward.png').convert_alpha()
+#gui
+heart_image = pg.image.load("img/gui/heart.png").convert_alpha()
+coin_image = pg.image.load("img/gui/coin.png").convert_alpha()
+logo_image = pg.image.load("img/gui/logo.png").convert_alpha()
+
+#load sounds
+shot_fx = pg.mixer.Sound("audio/audio_shot.wav")
+shot_fx.set_volume(0.5)
 
 #load json data for level
 with open('level.json') as file:
@@ -72,6 +80,19 @@ large_font = pygame.freetype.Font(font_path, 36)
 def draw_text(text, font, text_col, x, y):
     font.render_to(screen, (x, y), text, text_col)
 
+def display_data():
+    # Draw panel
+    pg.draw.rect(screen, "maroon", (c.SCREEN_WIDTH, 0, c.SIDE_PANEL, c.SCREEN_HEIGHT))
+    pg.draw.rect(screen, "grey0", (c.SCREEN_WIDTH, 0, c.SIDE_PANEL, 400), 2)
+    screen.blit(logo_image, (c.SCREEN_WIDTH, 400))
+    # Display data
+    draw_text("LEVEL:  " + str(world.level), text_font, "grey100", c.SCREEN_WIDTH + 10, 10)
+    screen.blit(heart_image, (c.SCREEN_WIDTH + 10, 35))
+    draw_text(str(world.health), text_font, "grey100", c.SCREEN_WIDTH + 50, 40)
+    screen.blit(coin_image, (c.SCREEN_WIDTH + 10, 65))
+    draw_text(str(world.money), text_font, "grey100", c.SCREEN_WIDTH + 50, 70)
+
+
 def create_turret(mouse_pos):
     mouse_tile_x = mouse_pos[0] // c.TILE_SIZE
     mouse_tile_y = mouse_pos[1] // c.TILE_SIZE
@@ -86,7 +107,7 @@ def create_turret(mouse_pos):
                 space_is_free = False
         #if it is a free space then create turret
         if space_is_free == True:
-            new_turret = Turret(turret_spritesheets, mouse_tile_x, mouse_tile_y)
+            new_turret = Turret(turret_spritesheets, mouse_tile_x, mouse_tile_y, shot_fx)
             turret_group.add(new_turret)
             # Deduce cost of turret
             world.money -= c.BUY_COST
@@ -141,7 +162,7 @@ while run:
 
         #update groups
         enemy_group.update(world)
-        turret_group.update(enemy_group)
+        turret_group.update(enemy_group, world)
 
         #highlight selected turret
         if selected_turret:
@@ -151,8 +172,6 @@ while run:
     # DRAWING SECTION
     #########################
 
-    screen.fill(pg.Color("grey100"))
-
     #draw level
     world.draw(screen)
 
@@ -161,9 +180,8 @@ while run:
     for turret in turret_group:
         turret.draw(screen)
 
-    draw_text(str(world.health), text_font, "grey100", 0, 0)
-    draw_text(str(world.money), text_font, "grey100", 0, 30)
-    draw_text(str(world.level), text_font, "grey100", 0, 60)
+    display_data()
+
 
     if game_over == False:
         # Check if the level has been started or not
@@ -175,7 +193,6 @@ while run:
             world.game_speed = 1
             if fast_forward_button.draw(screen):
                 world.game_speed = 2
-            print(world.game_speed)
             # Spawn enemies
             if pg.time.get_ticks() - last_enemy_spawn > c.SPAWN_COOLDOWN:
                 if world.spawned_enemies < len(world.enemy_list):
@@ -196,6 +213,9 @@ while run:
 
         #draw buttons
         #button for placing turrets
+        # For the "turret button" show cost of the turret and draw the button
+        draw_text(str(c.BUY_COST), text_font, "grey100", c.SCREEN_WIDTH + 215, 135)
+        screen.blit(coin_image, (c.SCREEN_WIDTH + 260, 130))
         if turret_button.draw(screen):
             placing_turrets = True
         #if placing turrets then show the cancel button as well
@@ -210,8 +230,10 @@ while run:
                 placing_turrets = False
         #if a turret is selected then show the upgrade button
         if selected_turret:
-            #if a turret can be upgraded then show the upgrade button
+            #show cost of upgrade and draw button
             if selected_turret.upgrade_level < c.TURRET_LEVELS:
+                draw_text(str(c.UPGRADE_COST), text_font, "grey100", c.SCREEN_WIDTH + 215, 195)
+                screen.blit(coin_image, (c.SCREEN_WIDTH + 260, 190))
                 if upgrade_button.draw(screen):
                     if world.money >= c.UPGRADE_COST:
                         selected_turret.upgrade()

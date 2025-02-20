@@ -37,8 +37,8 @@ class Enemy(pg.sprite.Sprite):
     #calculate distance to target
     dist = self.movement.length()
     #check if remaining distance is greater than the enemy speed
-    if dist >= self.speed:
-      self.pos += self.movement.normalize() * self.speed
+    if dist >= (self.speed * world.game_speed):
+      self.pos += self.movement.normalize() * (self.speed * world.game_speed)
     else:
       if dist != 0:
         self.pos += self.movement.normalize() * dist
@@ -53,7 +53,7 @@ class Enemy(pg.sprite.Sprite):
     self.image = pg.transform.rotate(self.original_image, self.angle)
     self.rect = self.image.get_rect()
     self.rect.center = self.pos
-    
+
   def check_alive(self, world):
     if self.health <= 0:
       world.killed_enemies += 1
