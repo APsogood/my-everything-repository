@@ -71,7 +71,6 @@ def draw_text(text, font, text_col, x, y):
 
 def draw_bg():
 	screen.fill(BG)
-	pygame.draw.line(screen, RED, (0, 300), (SCREEN_WIDTH, 300))
 
 
 class Soldier(pygame.sprite.Sprite):
@@ -146,25 +145,36 @@ class Soldier(pygame.sprite.Sprite):
 
 		#jump
 		if self.jump == True and self.in_air == False:
-			self.vel_y = -11
+			self.vel_y = -12#jump height
 			self.jump = False
 			self.in_air = True
 
 		#apply gravity
 		self.vel_y += GRAVITY
 		if self.vel_y > 10:
-			self.vel_y
+			self.vel_y = 10
 		dy += self.vel_y
 
-		#check collision with floor
-		if self.rect.bottom + dy > 300:
-			dy = 300 - self.rect.bottom
-			self.in_air = False
+		#check for collision
+		for tile in world.obstacle_list:
+				#check collision in the x direction
+				if tile[1].colliderect(self.rect.x + dx, self.rect.y, self.rect.width, self.rect.height):
+					dx = 0
+				#check for collision in the y direction
+				if tile[1].colliderect(self.rect.x, self.rect.y + dy, self.rect.width, self.rect.height):
+					#check if below the ground, i.e, jumping
+					if self.vel_y < 0:
+						self.vel_y = 0
+						dy = tile[1].bottom - self.rect.top
+					#check if above the ground, i.e, falling
+					elif self.vel_y >= 0:
+						self.vel_y = 0
+						self.in_air = False
+						dy = tile[1].top - self.rect.bottom
 
 		#update rectangle position
 		self.rect.x += dx
 		self.rect.y += dy
-
 
 	def shoot(self):
 		if self.shoot_cooldown == 0 and self.ammo > 0:
@@ -376,6 +386,10 @@ class Bullet(pygame.sprite.Sprite):
 		#check if bullet has gone off screen
 		if self.rect.right < 0 or self.rect.left > SCREEN_WIDTH:
 			self.kill()
+		#check for collision with level
+		for tile in world.obstacle_list:
+			if tile[1].colliderect(self.rect):
+				self.kill()
 
 		#check collision with characters
 		if self.shooter != player and pygame.sprite.spritecollide(player, bullet_group, False):
@@ -402,27 +416,31 @@ class Grenade(pygame.sprite.Sprite):
 		self.direction = direction
 		self.shooter = shooter
 
-
 	def update(self):
 		self.vel_y += GRAVITY
 		dx = self.direction * self.speed
 		dy = self.vel_y
 
-		#check collision with floor
-		if self.rect.bottom + dy > 300:
-			dy = 300 - self.rect.bottom
-			self.speed = 0
-
-		#check collision with walls
-		if self.rect.left + dx < 0 or self.rect.left + dx > SCREEN_WIDTH:
-			self.direction *= -1
-			dx = self.direction * self.speed
-
-		
+		#check for collision with level
+		for tile in world.obstacle_list:
+			#check collision with walls
+			if tile[1].colliderect(self.rect.x + dx, self.rect.y, self.rect.width, self.rect.height):
+				self.direction *= -1
+				dx = self.direction * self.speed
+			#check for collision in the y direction
+			if tile[1].colliderect(self.rect.x, self.rect.y + dy, self.rect.width, self.rect.height):
+				self.speed = 0
+				#check if below the ground, i.e, thrown up
+				if self.vel_y < 0:
+					self.vel_y = 0
+					dy = tile[1].bottom - self.rect.top
+				#check if above the ground, i.e, falling
+				elif self.vel_y >= 0:
+					self.vel_y = 0
+					dy = tile[1].top - self.rect.bottom
 		#update grenade position
 		self.rect.x += dx
 		self.rect.y += dy
-
 
 		#countdown timer
 		self.timer -= 1
