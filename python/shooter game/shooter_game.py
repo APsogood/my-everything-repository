@@ -79,10 +79,12 @@ def draw_text(text, font, text_col, x, y):
 
 def draw_bg():
     screen.fill(BG)
-    screen.blit(sky_img, (0, 0))
-    screen.blit(mountain_img, (0, SCREEN_HEIGHT - mountain_img.get_height() - 300))
-    screen.blit(pine1_img, (0, SCREEN_HEIGHT - pine1_img.get_height() - 150))
-    screen.blit(pine2_img, (0, SCREEN_HEIGHT - pine2_img.get_height()))
+    width = sky_img.get_width()
+    for x in range(5):
+        screen.blit(sky_img, ((x * width) - bg_scroll, 0))
+        screen.blit(mountain_img, ((x * width) - bg_scroll, SCREEN_HEIGHT - mountain_img.get_height() - 300))
+        screen.blit(pine1_img, ((x * width) - bg_scroll, SCREEN_HEIGHT - pine1_img.get_height() - 150))
+        screen.blit(pine2_img, ((x * width) - bg_scroll, SCREEN_HEIGHT - pine2_img.get_height()))
 
 class Soldier(pygame.sprite.Sprite):
     def __init__(self, char_type, x, y, scale, speed, ammo, grenades):
@@ -180,12 +182,11 @@ class Soldier(pygame.sprite.Sprite):
         self.rect.x += dx
         self.rect.y += dy
 
-        # Update scroll based on player position
+        # Old scrolling logic:
         if self.char_type == "player":
             if self.rect.right > SCREEN_WIDTH - SCROLL_THRESH or self.rect.left < SCROLL_THRESH:
                 self.rect.x -= dx
                 screen_scroll = -dx
-
         return screen_scroll
 
     def shoot(self):
@@ -275,7 +276,7 @@ class World():
                         decoration = Decoration(img, x * TILE_SIZE, y * TILE_SIZE)
                         decoration_group.add(decoration)
                     elif tile == 15:  # Create player
-                        player = Soldier('player', x * TILE_SIZE, y * TILE_SIZE, 1.80, 5, 20, 5)
+                        player = Soldier('player', x * TILE_SIZE, y * TILE_SIZE, 1.80, 7, 20, 5)
                         health_bar = HealthBar(10, 10, player.health, player.health)
                     elif tile == 16:  # Create enemies
                         enemy = Soldier('enemy', x * TILE_SIZE, y * TILE_SIZE, 1.80, 3, 20, 0)
@@ -283,7 +284,7 @@ class World():
                     elif tile == 17:  # Create ammo box
                         item_box = ItemBox('Ammo', x * TILE_SIZE, y * TILE_SIZE)
                         item_box_group.add(item_box)
-                    elif tile == 18:  # Create grenade
+                    elif tile == 18:  # Create grenade box
                         item_box = ItemBox('Grenade', x * TILE_SIZE, y * TILE_SIZE)
                         item_box_group.add(item_box)
                     elif tile == 19:  # Create health box
@@ -555,6 +556,7 @@ while run:
         else:
             player.update_action(0)  # Idle
         screen_scroll = player.move(moving_left, moving_right)
+        bg_scroll -= screen_scroll
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
