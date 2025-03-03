@@ -1,9 +1,11 @@
 import pygame
+from pygame import mixer
 import os
 import random
 import csv
 import button
 
+mixer.init()
 pygame.init()
 
 SCREEN_WIDTH = 800
@@ -28,6 +30,7 @@ bg_scroll = 0
 level = 1
 start_game = False
 MAX_LEVELS = 3
+start_intro = False
 RUN_SPEED = 9  # Player's running speed
 
 # Define player action variables
@@ -36,6 +39,19 @@ moving_right = False
 shoot = False
 grenade = False
 grenade_thrown = False
+
+
+# Load music and sounds
+#pygame.mixer.music.load("audio/music.mp3")
+#pygame.mixer.music.set_volume(0.3)
+#pygame.mixer.music.play(-1, 0.0, 5000)
+jump_fx = pygame.mixer.Sound("audio/jump.wav")
+jump_fx.set_volume(0.05)
+shot_fx = pygame.mixer.Sound("audio/shot.wav")
+shot_fx.set_volume(0.05)
+grenade_fx = pygame.mixer.Sound("audio/grenade.wav")
+grenade_fx.set_volume(0.05)
+
 
 # Load images
 # Button images
@@ -77,6 +93,7 @@ RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
+PINK = (235, 65, 54)
 
 # Define font
 font = pygame.font.SysFont('Futura', 30)
@@ -265,6 +282,8 @@ class Soldier(pygame.sprite.Sprite):
             bullet = Bullet(self.rect.centerx + (0.75 * self.rect.size[0] * self.direction), self.rect.centery, self.direction, self)
             bullet_group.add(bullet)
             self.ammo -= 1
+            shot_fx.play()
+
 
     def ai(self):
         if self.alive and player.alive:
@@ -505,6 +524,7 @@ class Grenade(pygame.sprite.Sprite):
         self.timer -= 1
         if self.timer <= 0:
             self.kill()
+            grenade_fx.play()
             explosion = Explosion(self.rect.x, self.rect.y, 0.5)
             explosion_group.add(explosion)
             if abs(self.rect.centerx - player.rect.centerx) < TILE_SIZE * 2 and \
@@ -541,6 +561,34 @@ class Explosion(pygame.sprite.Sprite):
                 self.kill()
             else:
                 self.image = self.images[self.frame_index]
+
+
+class ScreenFade():
+    def __init__(self, direction, colour, speed):
+        self.direction = direction
+        self.colour = colour
+        self.speed = speed
+        self.fade_counter = 0
+
+
+    def fade(self):
+        fade_complete = False
+        self.fade_counter += self.speed
+        if self.direction == 1:# Whole screen fade
+            pygame.draw.rect(screen, self.colour, (0 - self.fade_counter, 0, SCREEN_WIDTH // 2, SCREEN_HEIGHT))
+            pygame.draw.rect(screen, self.colour, (SCREEN_WIDTH // 2 + self.fade_counter, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+            pygame.draw.rect(screen, self.colour, (0, 0 - self.fade_counter, SCREEN_WIDTH, SCREEN_HEIGHT // 2))
+            pygame.draw.rect(screen, self.colour, (0, SCREEN_HEIGHT // 2 + self.fade_counter, SCREEN_WIDTH, SCREEN_HEIGHT))
+        if self.direction == 2:# Veritical screen fade down
+            pygame.draw.rect(screen, self.colour, (0, 0, SCREEN_WIDTH, 0 + self.fade_counter))
+        if self.fade_counter >= SCREEN_HEIGHT:
+            fade_complete = True
+
+        return fade_complete
+
+# Create screen fades
+intro_fade = ScreenFade(1, BLACK, 4)
+death_fade = ScreenFade(2, PINK, 4)
 
 
 # Create buttons
@@ -583,6 +631,7 @@ while run:
         # Add buttons
         if start_button.draw(screen):
             start_game = True
+            start_intro = True
         if exit_button.draw(screen):
             run = False
     else:
@@ -630,6 +679,13 @@ while run:
         water_group.draw(screen)
         exit_group.draw(screen)
 
+        # Show intro
+        if start_intro == True:
+            if intro_fade.fade():
+                start_intro = False
+                intro_fade.fade_counter = 0
+
+
         # Update player actions
         if player.alive:
             if shoot:
@@ -649,6 +705,7 @@ while run:
             bg_scroll -= screen_scroll
             # Check if player has completed the level
             if level_complete:
+                start_intro = True
                 level += 1
                 bg_scroll = 0
                 world_data = reset_level()
@@ -663,16 +720,19 @@ while run:
                     player, health_bar = world.process_data(world_data)
         else:
             screen_scroll = 0
-            if restart_button.draw(screen):
-                bg_scroll = 0
-                world_data = reset_level()
-                with open(f'level{level}_data.csv', newline='') as csvfile:
-                    reader = csv.reader(csvfile, delimiter=',')
-                    for x, row in enumerate(reader):
-                        for y, tile in enumerate(row):
-                            world_data[x][y] = int(tile)
-                world = World()
-                player, health_bar = world.process_data(world_data)
+            if death_fade.fade():
+                if restart_button.draw(screen):
+                    death_fade.fade_counter = 0
+                    start_intro = True
+                    bg_scroll = 0
+                    world_data = reset_level()
+                    with open(f'level{level}_data.csv', newline='') as csvfile:
+                        reader = csv.reader(csvfile, delimiter=',')
+                        for x, row in enumerate(reader):
+                            for y, tile in enumerate(row):
+                                world_data[x][y] = int(tile)
+                    world = World()
+                    player, health_bar = world.process_data(world_data)
 
 
     for event in pygame.event.get():
@@ -689,6 +749,7 @@ while run:
                 grenade = True
             if event.key == pygame.K_w and player.alive:
                 player.jump = True
+                jump_fx.play()
             if event.key == pygame.K_ESCAPE:
                 run = False
 
