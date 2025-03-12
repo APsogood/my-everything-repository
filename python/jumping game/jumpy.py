@@ -18,8 +18,11 @@ clock = pygame.time.Clock()
 FPS = 60
 
 #game variables
+SCROLL_THRESH = 200
 GRAVITY = 1
 MAX_PLATFORMS = 10
+scroll = 0
+bg_scroll = 0
 
 #define colours
 WHITE = (255, 255, 255)
@@ -27,7 +30,12 @@ WHITE = (255, 255, 255)
 #load images
 jumpy_image = pygame.image.load("Jumpy/assets/jump.png").convert_alpha()
 bg_image = pygame.image.load("Jumpy/assets/bg.png").convert_alpha()
-platform_image = pygame.image.load('Jumpy/assets/pads/wood.png')
+platform_image = pygame.image.load('Jumpy/assets/pads/wood.png').convert_alpha()
+
+#function for drawing the background
+def draw_bg(bg_scroll):
+    screen.blit(bg_image, (0, 0 + bg_scroll))
+    screen.blit(bg_image, (0, -600 + bg_scroll))
 
 
 #player class
@@ -43,6 +51,7 @@ class Player():
 
     def move(self):
         #reset variables
+        scroll = 0
         dx = 0
         dy = 0
 
@@ -84,9 +93,17 @@ class Player():
             self.vel_y = -20
 
 
+        #check if the player has bounced to the top of the screen
+        if self.rect.top <= SCROLL_THRESH:
+            #if player is jumping
+            if self.vel_y < 0:
+                scroll = -dy
+
         #update rectangle position
         self.rect.x += dx
-        self.rect.y += dy
+        self.rect.y += dy + scroll
+
+        return scroll
 
     def draw(self):
         screen.blit(pygame.transform.flip(self.image, self.flip, False), (self.rect.x - 10, self.rect.y - 5))
@@ -103,6 +120,10 @@ class Platform(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
+    def update(self, scroll):
+        
+        #update platform's vertical position
+        self.rect.y += scroll
 
 
 #player instance
@@ -126,10 +147,19 @@ while run:
 
     clock.tick(FPS)
 
-    jumpy.move()
+    scroll = jumpy.move()
 
     #draw background
-    screen.blit(bg_image, (0, 0))
+    bg_scroll += scroll
+    if bg_scroll >= 600:
+        bg_scroll = 0
+    draw_bg(bg_scroll)
+
+    #draw temporary scroll threshold
+    pygame.draw.line(screen, WHITE, (0, SCROLL_THRESH), (SCREEN_WIDTH, SCROLL_THRESH))
+
+    #update platforms
+    platform_group.update(scroll)
 
     #draw sprites
     platform_group.draw(screen)
