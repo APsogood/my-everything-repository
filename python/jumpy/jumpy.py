@@ -131,15 +131,28 @@ class Player():
 
 #platform class
 class Platform(pygame.sprite.Sprite):
-    def __init__(self, x, y, width):
+    def __init__(self, x, y, width, moving):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.transform.scale(platform_image, (width, 10))
+        self.moving = moving
+        self.move_counter = random.randint(0, 50)
+        self.direction = random.choice([-1, 1])
+        self.speed = random.randint(1, 2)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
 
     def update(self, scroll):
-        
+        #move platform side to side if it is a moving platform
+        if self.moving == True:
+            self.move_counter += 1
+            self.rect.x += self.direction * self.speed
+
+        #change platform direction if it has moved fully or hit a wall
+        if self.move_counter >= 100 or self.rect.left < 0 or self.rect.right > SCREEN_WIDTH:
+            self.direction *= -1
+            self.move_counter = 0
+
         #update platform's vertical position
         self.rect.y += scroll
 
@@ -156,7 +169,7 @@ jumpy = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
 platform_group = pygame.sprite.Group()
 
 #create starting platform
-platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100)
+platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100, False)
 platform_group.add(platform)
 
 #game loop
@@ -179,7 +192,12 @@ while run:
             p_w = random.randint(40, 60)
             p_x = random.randint(0, SCREEN_WIDTH - p_w)
             p_y = platform.rect.y - random.randint(80, 120)
-            platform = Platform(p_x, p_y, p_w)
+            p_type = random.randint(1, 2)
+            if p_type == 1 and score > 500:
+                p_moving = True
+            else:
+                p_moving = False
+            platform = Platform(p_x, p_y, p_w, p_moving)
             platform_group.add(platform)
 
         #update platforms
@@ -230,7 +248,7 @@ while run:
             #reset platforms
             platform_group.empty()
             #create starting platform
-            platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100)
+            platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100, False)
             platform_group.add(platform)
 
         
