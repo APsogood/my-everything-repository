@@ -2,6 +2,8 @@
 import pygame
 import random
 import os
+from spritesheet import SpriteSheet
+from enemy import Enemy
 
 #initialise pygame
 pygame.init()
@@ -47,6 +49,10 @@ font_big = pygame.font.SysFont("Ubuntu", 24)
 jumpy_image = pygame.image.load("Jumpy/assets/jump.png").convert_alpha()
 bg_image = pygame.image.load("Jumpy/assets/bg.png").convert_alpha()
 platform_image = pygame.image.load('Jumpy/assets/pads/wood.png').convert_alpha()
+#bird spritesheet
+bird_sheet_img = pygame.image.load('Jumpy/assets/bird.png').convert_alpha()
+bird_sheet = SpriteSheet(bird_sheet_img)
+
 
 #function for outputting text onto the screen
 def draw_text(text, font, text_col, x, y):
@@ -167,6 +173,7 @@ jumpy = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
 
 #create sprite groups
 platform_group = pygame.sprite.Group()
+enemy_group = pygame.sprite.Group()
 
 #create starting platform
 platform = Platform(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT - 50, 100, False)
@@ -203,6 +210,14 @@ while run:
         #update platforms
         platform_group.update(scroll)
 
+        #generate enemies
+        if len(enemy_group) == 0 and score > 1500:
+            enemy = Enemy(SCREEN_WIDTH, 100, bird_sheet, 1.5)
+            enemy_group.add(enemy)
+
+        #update enemies
+        enemy_group.update(scroll, SCREEN_WIDTH)
+
         #update score
         if scroll > 0:
             score += scroll
@@ -213,6 +228,7 @@ while run:
 
         #draw sprites
         platform_group.draw(screen)
+        enemy_group.draw(screen)
         jumpy.draw()
 
         #draw panel
@@ -245,6 +261,8 @@ while run:
             fade_counter = 0
             #reposition jumpy            
             jumpy.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 150)
+            #reset enemies
+            enemy_group.empty()
             #reset platforms
             platform_group.empty()
             #create starting platform
