@@ -2,10 +2,12 @@
 import pygame
 import random
 import os
+from pygame import mixer
 from spritesheet import SpriteSheet
 from enemy import Enemy
 
 #initialise pygame
+mixer.init()
 pygame.init()
 
 #game window dimensions
@@ -19,6 +21,16 @@ pygame.display.set_caption("Jumpy")
 #set frame rate
 clock = pygame.time.Clock()
 FPS = 60
+
+#load music and sounds
+pygame.mixer.music.load('Jumpy/assets/audio/music.mp3')
+pygame.mixer.music.set_volume(0.75)
+pygame.mixer.music.play(-1, 0.0)
+jump_fx = pygame.mixer.Sound('Jumpy/assets/audio/jump.mp3')
+jump_fx.set_volume(0.75)
+death_fx = pygame.mixer.Sound('Jumpy/assets/audio/death.mp3')
+death_fx.set_volume(0.75)
+
 
 #game variables
 SCROLL_THRESH = 200
@@ -117,6 +129,7 @@ class Player():
                         self.rect.bottom = platform.rect.top
                         dy = 0
                         self.vel_y = -20
+                        jump_fx.play()
 
         #check if the player has bounced to the top of the screen
         if self.rect.top <= SCROLL_THRESH:
@@ -128,12 +141,13 @@ class Player():
         self.rect.x += dx
         self.rect.y += dy + scroll
 
+        #update mask
+        self.mask = pygame.mask.from_surface(self.image)
+
         return scroll
 
     def draw(self):
         screen.blit(pygame.transform.flip(self.image, self.flip, False), (self.rect.x - 10, self.rect.y - 5))
-        pygame.draw.rect(screen, WHITE, self.rect, 2)
-
 
 #platform class
 class Platform(pygame.sprite.Sprite):
@@ -237,6 +251,12 @@ while run:
         #check game over
         if jumpy.rect.top > SCREEN_HEIGHT:
             game_over = True
+            death_fx.play()
+        #check for collision with enemies
+        if pygame.sprite.spritecollide(jumpy, enemy_group, False):
+            if pygame.sprite.spritecollide(jumpy, enemy_group, False, pygame.sprite.collide_mask):
+                game_over = True
+                death_fx.play()
     else:
         if fade_counter < SCREEN_WIDTH:
             fade_counter += 5
