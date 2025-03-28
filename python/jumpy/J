@@ -1,0 +1,10 @@
+alias python=python3
+alias pip=pip3
+export {variable_name}="{variable_value}"
+
+# Created by `pipx` on 2025-02-19 21:27:38
+export PATH="$PATH:/Users/aaran/.local/bin"
+projects() {
+	cd /Users/aaran/Github/my-everything-repository/python/jumpy/Jumpy
+}
+
