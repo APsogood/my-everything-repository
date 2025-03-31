@@ -3,6 +3,9 @@ from pygame.locals import *
 
 pygame.init()
 
+clock = pygame.time.Clock()
+fps = 60
+
 screen_width = 1000
 screen_height = 1000
 
@@ -20,19 +23,30 @@ bg_img = pygame.image.load('img/sky.png').convert_alpha()
 
 class Player():
     def __init__(self, x, y):
-        img = pygame.image.load('img/guy1.png').convert_alpha()
-        self.image = pygame.transform.scale(img, (40, 80))
+        self.images_right = []
+        self.images_left = []
+        self.index = 0
+        self.counter = 0
+        for num in range(1, 5):
+            img_right = pygame.image.load(f'img/guy{num}.png').convert_alpha()
+            img_right = pygame.transform.scale(img_right, (40, 80))
+            img_left = pygame.transform.flip(img_right, True, False)
+            self.images_left.append(img_left)
+            self.images_right.append(img_right)
+        self.image = self.images_right[self.index]
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
         self.vel_y = 0
         self.jumped = False
+        self.direction = 0
 
     def update(self):
         dx = 0
         dy = 0
+        walk_cooldown = 10
 
-        #get keypresses
+        # get keypresses
         key = pygame.key.get_pressed()
         if key[pygame.K_w] and self.jumped == False:
             self.vel_y = -10
@@ -40,32 +54,48 @@ class Player():
         if key[pygame.K_w] == False:
             self.jumped = False
         if key[pygame.K_a]:
-            dx -= 3
+            dx -= 5
+            self.direction = -1  # Moving left
         if key[pygame.K_d]:
-            dx += 3
+            dx += 5
+            self.direction = 1  # Moving right
 
+        # handle animation
+        if dx != 0:  # Only animate when moving
+            self.counter += 1
+            if self.counter > walk_cooldown:
+                self.counter = 0
+                self.index += 1
+                if self.index >= len(self.images_right):
+                    self.index = 0
+            # Set the correct image based on direction
+            if self.direction == 1:
+                self.image = self.images_right[self.index]
+            elif self.direction == -1:
+                self.image = self.images_left[self.index]
+        else:
+            # Reset animation when idle
+            self.counter = 0
+            self.index = 0
+            self.image = self.images_right[self.index] if self.direction == 1 else self.images_left[self.index]
 
-        #add gravity
+        # add gravity
         self.vel_y += 0.5
         if self.vel_y > 10:
             self.vel_y = 10
         dy += self.vel_y
 
-        #check for collision
+        # check for collision with the ground
+        if self.rect.bottom + dy > screen_height:
+            dy = screen_height - self.rect.bottom
+            self.jumped = False  # Reset jump when on the ground
 
-        #update player coordinates
+        # update player coordinates
         self.rect.x += dx
         self.rect.y += dy
 
-        if self.rect.bottom > screen_height:
-            self.rect.bottom = screen_height
-            dy = 0
-
-
-        #draw player onto screen
+        # draw player onto screen
         screen.blit(self.image, self.rect)
-
-
 
 
 class World():
@@ -133,6 +163,7 @@ world = World(world_data)
 run = True
 while run:
 
+    clock.tick(fps)
     screen.blit(bg_img, (0, 0))
     screen.blit(sun_img, (100, 100))
 
