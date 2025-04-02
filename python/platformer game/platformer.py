@@ -37,6 +37,8 @@ class Player():
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
         self.vel_y = 0
         self.jumped = False
         self.direction = 0
@@ -44,9 +46,9 @@ class Player():
     def update(self):
         dx = 0
         dy = 0
-        walk_cooldown = 5
+        walk_cooldown = 10
 
-        # get keypresses
+        #get keypresses
         key = pygame.key.get_pressed()
         if key[pygame.K_w] and self.jumped == False:
             self.vel_y = -10
@@ -54,49 +56,67 @@ class Player():
         if key[pygame.K_w] == False:
             self.jumped = False
         if key[pygame.K_a]:
-            dx -= 5
+            dx -= 8  # Increase speed for smoother movement
             self.direction = -1  # Moving left
         if key[pygame.K_d]:
-            dx += 5
+            dx += 8 # Increase speed for smoother movement
             self.direction = 1  # Moving right
 
-        # handle animation
-        if dx != 0:  # Only animate when moving
+        #handle animation
+        if dx != 0:  #only animate when moving
             self.counter += 1
             if self.counter > walk_cooldown:
                 self.counter = 0
                 self.index += 1
                 if self.index >= len(self.images_right):
                     self.index = 0
-            # Set the correct image based on direction
+            #set the correct image based on direction
             if self.direction == 1:
                 self.image = self.images_right[self.index]
             elif self.direction == -1:
                 self.image = self.images_left[self.index]
         else:
-            # Reset animation when idle
+            #reset animation when idle
             self.counter = 0
             self.index = 0
             self.image = self.images_right[self.index] if self.direction == 1 else self.images_left[self.index]
 
-        # add gravity
-        self.vel_y += 0.5
+        #add gravity
+        self.vel_y += 0.65
         if self.vel_y > 10:
             self.vel_y = 10
         dy += self.vel_y
 
-        # check for collision with the ground
+        #check for collision
+        for tile in world.tile_list:
+            #check for collision in x direction
+            if tile[1].colliderect(self.rect.x + dx, self.rect.y, self.width, self.height):
+                dx = 0
+
+            #check for collision in y direction
+            if tile[1].colliderect(self.rect.x, self.rect.y + dy, self.width, self.height):
+                #check if below the ground i.e. jumping
+                if self.vel_y < 0:
+                    dy = tile[1].bottom - self.rect.top
+                    self.vel_y = 0
+            #check if below the ground i.e. falling
+                elif self.vel_y >= 0:
+                    dy = tile[1].top - self.rect.bottom
+                    self.vel_y = 0
+
+
+        #check for collision with the ground
         if self.rect.bottom + dy > screen_height:
             dy = screen_height - self.rect.bottom
-            self.jumped = False  # Reset jump when on the ground
+            self.jumped = False  #reset jump when on the ground
 
-        # update player coordinates
+        #update player coordinates
         self.rect.x += dx
         self.rect.y += dy
 
-        # draw player onto screen
+        #draw player onto screen
         screen.blit(self.image, self.rect)
-
+        pygame.draw.rect(screen, (255, 255, 255), self.rect, 2)
 
 class World():
     def __init__(self, data):
@@ -130,6 +150,7 @@ class World():
     def draw(self):
         for tile in self.tile_list:
             screen.blit(tile[0], tile[1])
+            pygame.draw.rect(screen, (255, 255, 255), tile[1], 2)
 
 
 
