@@ -23,12 +23,12 @@ clock = pygame.time.Clock()
 FPS = 60
 
 #load music and sounds
-pygame.mixer.music.load('Jumpy/assets/audio/music.mp3')
+pygame.mixer.music.load('dist/assets/audio/music.mp3')
 pygame.mixer.music.set_volume(0.75)
 pygame.mixer.music.play(-1, 0.0)
-jump_fx = pygame.mixer.Sound('Jumpy/assets/audio/jump.mp3')
+jump_fx = pygame.mixer.Sound('dist/assets/audio/jump.mp3')
 jump_fx.set_volume(0.75)
-death_fx = pygame.mixer.Sound('Jumpy/assets/audio/death.mp3')
+death_fx = pygame.mixer.Sound('dist/assets/audio/death.mp3')
 death_fx.set_volume(0.75)
 
 
@@ -58,11 +58,11 @@ font_small = pygame.font.SysFont("Ubuntu", 20)
 font_big = pygame.font.SysFont("Ubuntu", 24)
 
 #load images
-jumpy_image = pygame.image.load("Jumpy/assets/jump.png").convert_alpha()
-bg_image = pygame.image.load("Jumpy/assets/bg.png").convert_alpha()
-platform_image = pygame.image.load('Jumpy/assets/pads/wood.png').convert_alpha()
+jumpy_image = pygame.image.load("dist/assets/jump.png").convert_alpha()
+bg_image = pygame.image.load("dist/assets/bg.png").convert_alpha()
+platform_image = pygame.image.load('dist/assets/pads/wood.png').convert_alpha()
 #bird spritesheet
-bird_sheet_img = pygame.image.load('Jumpy/assets/bird.png').convert_alpha()
+bird_sheet_img = pygame.image.load('dist/assets/bird.png').convert_alpha()
 bird_sheet = SpriteSheet(bird_sheet_img)
 
 
