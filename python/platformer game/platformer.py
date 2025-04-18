@@ -1,8 +1,11 @@
 import pygame
 from pygame.locals import *
+from pygame import mixer
 import pickle
 from os import path
 
+pygame.mixer.pre_init(44100, -16, 2, 512)
+mixer.init()
 pygame.init()
 
 clock = pygame.time.Clock()
@@ -40,6 +43,16 @@ bg_img = pygame.image.load('img/sky.png').convert_alpha()
 restart_img = pygame.image.load('img/restart_btn.png').convert_alpha()
 start_img = pygame.image.load('img/start_btn.png').convert_alpha()
 exit_img = pygame.image.load('img/exit_btn.png').convert_alpha()
+
+#load sounds
+pygame.mixer.music.load('img/music.wav')
+pygame.mixer.music.play(-1, 0.0, 5000)
+coin_fx = pygame.mixer.Sound('img/coin.wav')
+coin_fx.set_volume(0.5)
+jump_fx = pygame.mixer.Sound('img/jump.wav')
+jump_fx.set_volume(0.5)
+game_over_fx = pygame.mixer.Sound('img/game_over.wav')
+game_over_fx.set_volume(0.5)
 
 
 def draw_text(text, font, color, surface, x, y):
@@ -108,6 +121,7 @@ class Player():
             #get keypresses
             key = pygame.key.get_pressed()
             if key[pygame.K_w] and self.jumped == False and self.in_air == False:
+                jump_fx.play()
                 self.vel_y = -10
                 self.jumped = True
             if key[pygame.K_w] == False:
@@ -166,10 +180,12 @@ class Player():
             #check for collision with enemies
             if pygame.sprite.spritecollide(self, blob_group, False):
                 game_over = -1
+                game_over_fx.play()
 
             #check for collision with lava
             if pygame.sprite.spritecollide(self, lava_group, False):
                 game_over = -1
+                game_over_fx.play()
 
             #check for collision with lava
             if pygame.sprite.spritecollide(self, exit_group, False):
@@ -363,6 +379,7 @@ while run:
             #check if a coin has been collected
             if pygame.sprite.spritecollide(player, coin_group, True):
                 score += 1
+                coin_fx.play()
             draw_text('X ' + str(score), font_score, white, screen, tile_size - 10, 10)
 
         blob_group.draw(screen)
