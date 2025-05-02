@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 
 # Load the data
-data = pd.read_csv('data.csv')
+data = pd.read_csv('predict.csv')
 
 # Ensure the data has at least 100 records
 if len(data) < 100:
