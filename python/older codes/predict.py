@@ -3,8 +3,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import numpy as np
 
-# Load the data
-data = pd.read_csv('predict.csv')
+# Load the data from the local CSV file
+data = pd.read_csv('./predict.csv')
 
 # Ensure the data has at least 100 records
 if len(data) < 100:
