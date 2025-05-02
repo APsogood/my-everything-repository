@@ -9,12 +9,10 @@ source /home/hirram143/myenv/bin/activate
 ## iMac
 To activate the environment on your iMac, use the following command:
 ```
-source /Users/aaran/Other Files/my_env/bin/activate
+source "/Users/aaran/Other Files/my_env/bin/activate"
 ```
 
 ## Using the Environment in VS Code
-To use the environment in VS Code, follow these steps:
-
 1. Open VS Code.
 2. Open the Command Palette (F1 or Ctrl+Shift+P).
 3. Type `Python: Select Interpreter` and select it.
@@ -29,7 +27,7 @@ To use the environment in VS Code, follow these steps:
      ```
    - For iMac:
      ```
-     source /Users/aaran/Other Files/my_env/bin/activate
+     source "/Users/aaran/Other Files/my_env/bin/activate"
      ```
 
 Now you can run your Python scripts within the activated environment in VS Code.
