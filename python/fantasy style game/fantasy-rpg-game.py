@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -10,9 +11,18 @@ bottom_panel = 150
 screen_width = 800
 screen_height = 400 + bottom_panel
 
-
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Fantasy RPG Game")
+
+#define game variables
+current_fighter = 1
+total_fighters = 3
+action_cooldown = 0
+action_wait_time = 90
+attack = False
+potion = False
+clicked = False
+
 
 #define fonts
 font = pygame.font.SysFont('Times New Roman', 26)
@@ -26,7 +36,8 @@ green = (0, 255, 0)
 background_img = pygame.image.load("img/Background/background.png").convert_alpha()
 #panel img
 panel_img = pygame.image.load("img/Icons/panel.png").convert_alpha()
-
+#sword image
+sword_img = pygame.image.load("img/Icons/sword.png").convert_alpha()
 
 #create function for drawing text
 def draw_text(text, font, text_col, x, y):
@@ -63,7 +74,7 @@ class Fighter():
         self.alive = True
         self.animation_list = []
         self.frame_index = 0
-        self.action = 0#0:idle, 1:attack, 2:hurt, #3:dead
+        self.action = 0#0:idle, 1:attack, 2:hurt, 3:dead
         self.update_time = pygame.time.get_ticks()
         #load idle images
         temp_list = []
@@ -95,7 +106,31 @@ class Fighter():
             self.frame_index += 1
         #if the animation has run out then reset it back to the start
         if self.frame_index >= len(self.animation_list[self.action]):
-            self.frame_index = 0
+            self.idle()
+
+
+    
+    
+    def idle(self):
+        #set variables to attack animation
+        self.action = 0
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
+
+    
+    def attack(self, target):
+        #deal damage to enemy
+        rand = random.randint (-5, 5)
+        damage = self.strength + rand
+        target.hp -= damage
+        #check if target has died
+        if target.hp < 1:
+            target.hp = 0
+            target.alive = False
+        #set variables to attack animation
+        self.action = 1
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
 
 
     def draw(self):
@@ -118,7 +153,6 @@ class HealthBar():
         ratio = self.hp / self.max_hp
         pygame.draw.rect(screen, red, (self.x, self.y, 150, 20))
         pygame.draw.rect(screen, green, (self.x, self.y, 150 * ratio, 20))
-
 
 
 
@@ -156,9 +190,63 @@ while run:
         bandit.update()
         bandit.draw()
 
+
+    #control player actions
+    #reset action variables
+    attack = False
+    potion = False
+    target = None
+    #make sure mouse is visible
+    pygame.mouse.set_visible(True)
+    pos = pygame.mouse.get_pos()
+    for count, bandit in enumerate(bandit_list):
+        if bandit.rect.collidepoint(pos):
+            #hide mouse
+            pygame.mouse.set_visible(False)
+            #show sword in place of mouse cursor
+            screen.blit(sword_img, pos)
+            if clicked == True:
+                attack = True
+                target = bandit_list[count]
+
+
+    #player action
+    if knight.alive == True:
+        if current_fighter == 1:
+            action_cooldown += 1
+            if action_cooldown >= action_wait_time:
+                #look for player action
+                #attack
+                if attack == True and target != None:
+                    knight.attack(target)
+                    current_fighter += 1
+                    action_cooldown = 0
+
+    #enemy action
+    for count, bandit in enumerate(bandit_list):
+        if current_fighter == 2 + count:
+            if bandit.alive == True:
+                action_cooldown += 1
+                if action_cooldown >= action_wait_time:
+                    #attack
+                    bandit.attack(knight)
+                    current_fighter += 1
+                    action_cooldown = 0
+            else:
+                current_fighter += 1
+        
+    #if all fighters have had a turn them reset
+    if current_fighter > total_fighters:
+        current_fighter = 1
+            
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            clicked = True
+        else:
+            clicked = False
 
     pygame.display.update()
 
