@@ -23,6 +23,6 @@ class Button():
 
         # Always draw the button
         self.surface.blit(self.image, (self.rect.x, self.rect.y))
-        # Debug: draw a yellow outline around the button
-        pygame.draw.rect(self.surface, (255, 255, 0), self.rect, 2)
+        # Draw a slightly darker outline: from (80, 40, 20) to (70, 35, 15)
+        pygame.draw.rect(self.surface, (70, 35, 15), self.rect, 2)
         return action
