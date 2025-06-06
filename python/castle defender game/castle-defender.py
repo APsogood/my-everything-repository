@@ -43,7 +43,7 @@ class Castle():
 		screen.blit(self.image, self.rect)
 
 
-
+ 
 #create castle
 castle = Castle(castle_img_100, SCREEN_WIDTH - 250, SCREEN_HEIGHT - 300, 0.2)
 
