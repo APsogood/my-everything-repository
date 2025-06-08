@@ -46,7 +46,7 @@ class Castle():
 		self.rect = self.image100.get_rect()
 		self.rect.x = x
 		self.rect.y = y
-
+ 
 
 	def shoot(self):
 		pos = pygame.mouse.get_pos()
