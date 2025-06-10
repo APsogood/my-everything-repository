@@ -63,7 +63,7 @@ class Castle():
 			self.fired = False
 
 
-
+ 
 	def draw(self):
 		self.image = self.image100
 
