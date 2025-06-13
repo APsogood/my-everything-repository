@@ -62,7 +62,7 @@ class Castle():
 		if pygame.mouse.get_pressed()[0] == False:
 			self.fired = False
 
-
+ 
  
 	def draw(self):
 		self.image = self.image100
