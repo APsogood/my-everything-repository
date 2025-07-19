@@ -22,6 +22,8 @@ FPS = 60
 bg = pygame.image.load('img/bg.png').convert_alpha()
 #castle
 castle_img_100 = pygame.image.load('img/castle/castle_100.png').convert_alpha()
+castle_img_50 = pygame.image.load('img/castle/castle_50.png').convert_alpha()
+castle_img_25 = pygame.image.load('img/castle/castle_25.png').convert_alpha()
 
 #bullet image
 bullet_img = pygame.image.load('img/bullet.png').convert_alpha()
@@ -61,7 +63,7 @@ WHITE = (255, 255, 255)
 
 #castle class
 class Castle():
-	def __init__(self, image100, x, y, scale):
+	def __init__(self, image100, image50, image25, x, y, scale):
 		self.health = 1000
 		self.max_health = self.health
 		self.fired = False
@@ -72,6 +74,8 @@ class Castle():
 		height = image100.get_height()
 
 		self.image100 = pygame.transform.scale(image100, (int(width * scale), int(height * scale)))
+		self.image50 = pygame.transform.scale(image50, (int(width * scale), int(height * scale)))
+		self.image25 = pygame.transform.scale(image25, (int(width * scale), int(height * scale)))
 		self.rect = self.image100.get_rect()
 		self.rect.x = x
 		self.rect.y = y
@@ -94,7 +98,13 @@ class Castle():
  
  
 	def draw(self):
-		self.image = self.image100
+		#check which image to use based on health
+		if self.health <= 250:
+			self.image = self.image25
+		elif self.health <= 500:
+			self.image = self.image50
+		else:
+			self.image = self.image100
 
 		screen.blit(self.image, self.rect)
 
@@ -125,8 +135,30 @@ class Bullet(pygame.sprite.Sprite):
 
 	
 
+class CrossHair():
+	def __init__(self, scale):
+		image = pygame.image.load('img/crosshair.png').convert_alpha()
+		width = image.get_width()
+		height = image.get_height()
+
+		self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
+		self.rect = self.image.get_rect()
+
+		#hide mouse
+		pygame.mouse.set_visible(False)
+
+	def draw(self):
+		mx, my = pygame.mouse.get_pos()
+		self.rect.center = (mx, my)
+		screen.blit(self.image, self.rect)
+
+
+
 #create castle
-castle = Castle(castle_img_100, SCREEN_WIDTH - 250, SCREEN_HEIGHT - 300, 0.2)
+castle = Castle(castle_img_100, castle_img_50, castle_img_25, SCREEN_WIDTH - 250, SCREEN_HEIGHT - 300, 0.2)
+
+#create crosshair
+crosshair = CrossHair(0.025)
 
 #create groups
 bullet_group = pygame.sprite.Group()
@@ -148,6 +180,9 @@ while run:
 	#draw castle
 	castle.draw()
 	castle.shoot()
+
+	#draw crosshair
+	crosshair.draw()
 
 	#draw bullets
 	bullet_group.update()
