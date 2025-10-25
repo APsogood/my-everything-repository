@@ -16,7 +16,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Battle')
 
 
-#define game variables
+#define game variable
 current_fighter = 1
 total_fighters = 3
 action_cooldown = 0
