@@ -36,4 +36,3 @@ next-env.d.ts
 .contentlayer
 /git ignore
 __pycache__
-.env
