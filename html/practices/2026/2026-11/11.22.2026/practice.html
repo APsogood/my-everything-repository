@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="appul.png" type="image/x-icon">
+    <title>Practice</title>
+</head>
+<body>
+
+    <!-- KEY: Type attributes tell it what to be, like username, password, bday, etc.
+     Dropdowns don't need it because select tells it to be it-->    
+    <form action="index.php" method="post" enctype="multipart/form-data">
+                                   <!-- "multipart/form-data" is used to further encrypt the data being sent. Instead of sending one large file, it breaks it down into separate pieces, then it assembles it all back when it arrives to its desired destination. "enctype" is the attribute that specifies this that stands for encryption type -->
+
+                                   <!-- "action" attribute sends data to another file. e.g. <form action="index.php"> -->
+
+                                   <!-- "method" attribute has 2 values: "get" and "post". "get" is for confidential data like passwords, and address.
+
+                                    "post" is used to send insensitive data like country you live in, city, name, etc.
+
+                                    E.g. <form method="post"> and <form method="get"> -->
+
+    <label for="username">username:</label> <!-- "for" is for those who need a screen reader so it reads to them. -->
+    <input type="text" id="username" placeholder="Spongebob" minlength="6" maxlength="12" required> <br> <!-- This just creates a text box. ID means identification, and you can put anything, same for "for". Required makes it that it MUST have the data filled. "minlength" means minimum length and "maxlength" means maximum length. "placeholder" gives the user an idea of what to enter. -->
+
+
+
+    <label for="password">password:</label>
+    <input for="username" type="password" id="password"> <br> <!-- "password" is for passwords. It makes it so the user can't see what they are typing, and instead shows bullet points -->
+
+
+
+    <label for="email">email:</label>
+    <input type="email" id="email" placeholder="spongebob@gmail.com"> <br> <!-- "email" is for email addresses. It makes sure the user puts in a valid email address. -->
+
+
+
+    <label for="phone">phone number:</label>
+    <input type="tel" id="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br> <!-- "tel" is for telephone numbers. "pattern" helps so the user doesn't put in random numbers -->
+
+
+
+    <label for="bday">birthday:</label> <!-- "bday" means birthday -->
+    <input type="date" id="bday"> <br>
+
+
+
+    <label for="quantity">quantity:</label>
+    <input type="number" id="quantity" min="0" max="5" value="1"> <br> <!-- "number" is for numerical input. "min" and "max" set the range of acceptable values. "value" means starting value. -->
+
+    <label for="Mr.">Mr.</label>
+    <input type="radio" id="Mr." name="title" value="Mr."> <br> <!-- These are radio buttons. "name" makes groups. If you want to be able to select all, make them all one group. If you wanna select more than 1 or all, don't add it.-->
+
+    <label for="Ms.">Ms.</label>
+    <input type="radio" id="Mr." name="title" value="Mr."> <br>
+
+    <label for="Dr.">Dr.</label>
+    <input type="radio" id="Mr." name="title" value="Mr."> <br>
+
+
+
+    <label for="payment">payment:</label> <!-- "payment" is for payment methods-->
+    <select id="payment">
+        <option value="visa">visa</option> <!-- <option> creates the option to select. -->
+        <option value="mastercard">mastercard</option>
+        <option value="giftcard">gift card</option>
+    </select> <br>
+
+
+
+    <label for="subscribe">subscribe:</label>
+    <input type="checkbox" id="subscribe"> <br> <!-- This is a checkbox. -->
+
+
+
+    <label for="comment">comment:</label>
+    <textarea id="comment" row="3" cols="25"></textarea> <br> <!-- This is a text area. "row" is how many rows it has, and "cols" is how many columns it has. -->
+
+
+    <label for="file">file:</label>
+    <input type="file" id="file" accept="image/png, image/jpeg, video/mp4"> <br> <!-- This is a file input. It allows the user to upload a file. "accept" means what it can accept-->
+
+    <input type="reset"><br> <!-- This resets the form. -->
+    <input type="submit"> <!-- This submits the form. -->
+    </form>
+
+
+
+</body>
+</html>
