@@ -1,0 +1,28 @@
+body{
+    background-color: black;
+
+}
+h1{
+    color: white;
+}
+#p1{ /* When stating a ID, you have to put a hashtag in front and then type the name. In CSS, you create comments using these tags */
+    color: red;
+}
+#p2{
+    color: orange;
+}
+#p3{
+    color: yellow;
+}
+#p4{
+    color: green;
+} 
+
+.odd{ /* When stating a class, you have to put a period in front and then type the name. */
+    color: red
+}
+
+.even{
+    color: blue;
+}
+/* The beauty of CSS external styling is you can reuse the same styles across multiple pages. */
